@@ -11,6 +11,7 @@
 /[Mm]emoryCaptures/
 # Should stay commented if used for a whole unity project
 # /[Pp]rojectSettings/
+# If usersettings still get tracked by git, remove them, make a commit and then readd them
 /[Uu]serSettings/
 
 # Asset meta data should only be ignored when the corresponding asset is also ignored
