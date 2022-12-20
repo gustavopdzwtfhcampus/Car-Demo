@@ -1,0 +1,190 @@
+fileFormatVersion: 2
+guid: 46a7a0c56aca4564e859de7db4440965
+ModelImporter:
+  serializedVersion: 19301
+  internalIDToNameTable:
+  - first:
+      74: -3536274748261011574
+    second: Cylinder.007|BeamAction
+  - first:
+      74: -6432791210832177270
+    second: Cylinder.007|Cube.001Action
+  - first:
+      74: -6751646865706087228
+    second: Cylinder.007|Cube.001Action.001
+  - first:
+      74: 3883379836111173253
+    second: Cylinder.007|Cube.001Action.002
+  - first:
+      74: 1669091083839771265
+    second: Cylinder.007|Cube.001Action.003
+  - first:
+      74: -1802804670533804624
+    second: Cylinder.007|CubeAction
+  - first:
+      74: 6383907419916802543
+    second: Cylinder.007|Cylinder.001Action
+  - first:
+      74: 5453263728197712616
+    second: Cylinder.007|Cylinder.002Action
+  - first:
+      74: 3084744291132632565
+    second: Cylinder.007|Cylinder.003Action
+  - first:
+      74: 6618985373740156742
+    second: Cylinder.007|Cylinder.004Action
+  - first:
+      74: 5746172888035176245
+    second: Cylinder.007|Cylinder.005Action
+  - first:
+      74: 2380824911885758102
+    second: Cylinder.007|Cylinder.006Action
+  - first:
+      74: -203420807171948908
+    second: Cylinder.007|Cylinder.007Action
+  - first:
+      74: 1094779659809409219
+    second: Cylinder.007|Cylinder.007Action.001
+  - first:
+      74: -3372678005510141681
+    second: Cylinder.007|Cylinder.008Action
+  - first:
+      74: -2139760807322460260
+    second: Cylinder.007|Cylinder.009Action
+  - first:
+      74: 5288401976719273780
+    second: Cylinder.007|Cylinder.010Action
+  - first:
+      74: 5013430844199243374
+    second: Cylinder.007|Cylinder.011Action
+  - first:
+      74: 5129691464255190923
+    second: Cylinder.007|CylinderAction
+  - first:
+      74: -2411530212317584235
+    second: Cylinder.007|EmptyAction
+  - first:
+      74: 8162831744330617325
+    second: Cylinder.007|FlyingSaucer_ColliderAction
+  - first:
+      74: 8278442126895493083
+    second: Cylinder.007|FlyingSaucerAction
+  - first:
+      74: 357950262141135271
+    second: Cylinder.007|SphereAction
+  - first:
+      74: -4570462221499811425
+    second: Cylinder.007|TorusAction
+  - first:
+      74: 3005039128818959828
+    second: Wheel|BeamAction
+  - first:
+      74: -7111883933559333533
+    second: Wheel|Cylinder.007Action.001
+  - first:
+      74: 126518527686740381
+    second: Wheel|EmptyAction
+  - first:
+      74: -8596938764165087382
+    second: Wheel|FlyingSaucer_ColliderAction
+  - first:
+      74: 8410423105203346766
+    second: Wheel|FlyingSaucerAction
+  - first:
+      74: 2673863077444304248
+    second: Wheel|SphereAction
+  - first:
+      74: 4695738956754378544
+    second: Wheel|TorusAction
+  externalObjects: {}
+  materials:
+    materialImportMode: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
