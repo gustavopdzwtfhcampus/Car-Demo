@@ -30,9 +30,19 @@ public class Car : MonoBehaviour
             rb.MoveRotation(rb.rotation * addRotation);
         }
 
+        /*
         if (Input.GetKey(KeyCode.Space))
         {
             this.GetComponent<AudioSource>().Play();
+        }
+        */
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.GetComponent<PowerUp>() != null)
+        {
+            other.GetComponent<PowerUp>().Activate();
         }
     }
 }
