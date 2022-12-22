@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Car_Movement : MonoBehaviour
+public class Car : MonoBehaviour
 {
     Rigidbody rb;
     Vector3 angularVelocity;

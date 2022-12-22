@@ -129,7 +129,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-136332
+  m_Name: pb_Mesh25072
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -384,9 +384,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b28e625cfea7f40b8a4d75b1fcae4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 791200180}
   rotationSpeed: 2
-  viewAngleLimit: 45
+  viewAngleLimit: 90
+  fieldOfViewLimitLow: 40
+  fieldOfViewLimitUpper: 100
 --- !u!1 &1369924664
 GameObject:
   m_ObjectHideFlags: 0
