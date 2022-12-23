@@ -6,6 +6,9 @@ public class PowerUpAntiGravity : MonoBehaviour, PowerUp
 {
     public void Activate()
     {
-        print("Anti Gravity");
+        GameManager.instance.PlaySound(this.gameObject);
+        //Removes the specified gameobject from the game
+        GameManager.instance.UnloadObject(this.gameObject);
+
     }
 }
