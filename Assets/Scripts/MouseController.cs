@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class MouseController : MonoBehaviour
 {
-    //The camera which gets rotated
+    //The object which gets rotated
+    public GameObject rotationObject;
+    //The main camera
     Camera camera;
     public float rotationSpeed;
     public float viewAngleLimit;
@@ -12,6 +14,11 @@ public class MouseController : MonoBehaviour
     float rotationXAxis = 0;
     //The rotation applied to the y axis/The horizontal rotation of the mouse
     float rotationYAxis = 0;
+    public bool invertXAxis;
+    int invertXAxisModifier;
+    public bool invertYAxis;
+    int invertYAxisModifier;
+    //Temporary variable to store and modify new field of view value
     float fieldOfViewModifier;
     //The starting value of the field of view
     float fieldOfViewStartingValue;
@@ -39,6 +46,12 @@ public class MouseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (invertXAxis) { invertXAxisModifier = -1; }
+        else { invertXAxisModifier = 1; }
+
+        if (invertYAxis) { invertYAxisModifier = -1; }
+        else { invertYAxisModifier = 1; }
+
         //Reads the input of the vertical mouse input, multiplies it with the rotation speed and adds it to the rotation variable of the x axis
         rotationXAxis += -Input.GetAxis("Mouse Y") * rotationSpeed;
         //Limits the rotation of the x axis to the specified view angle
@@ -49,13 +62,13 @@ public class MouseController : MonoBehaviour
         //Limits the rotation of the y axis to the specified view angle
         rotationYAxis = Mathf.Clamp(rotationYAxis, -viewAngleLimit, viewAngleLimit);
 
-        //Changes the rotation of the camera by applying the previously read rotation of the x axis
-        camera.transform.localRotation = Quaternion.Euler(rotationXAxis, rotationYAxis, 0);
+        //Changes the rotation of the camera by applying the previously read rotation of the x axis to a parent gameobject
+        rotationObject.transform.localRotation = Quaternion.Euler(-rotationXAxis, -rotationYAxis, 0);
         //???
         //transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * rotationSpeed, 0);
 
-        //Reads the input of the mousewheel and subtracts/adds it from/to the cameras current field of view, however it is not yet actually assigned to the camera
-        //instead in a temporary variable
+        //Reads the input of the mousewheel and subtracts/adds it from/to the cameras current field of view,
+        //however it is not yet actually assigned to the camera, instead in a temporary variable
         fieldOfViewModifier = camera.fieldOfView - 2*Input.mouseScrollDelta.y;
         //Clamps the new field of view between the assigned lower and upper limit the field of view should be able to have
         fieldOfViewModifier = Mathf.Clamp(fieldOfViewModifier, fieldOfViewLimitLow, fieldOfViewLimitUpper);
