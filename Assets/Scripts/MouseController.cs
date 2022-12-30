@@ -69,7 +69,7 @@ public class MouseController : MonoBehaviour
             rotationYAxis = Mathf.Clamp(rotationYAxis, -viewAngleLimit, viewAngleLimit);
 
             //Changes the rotation of the camera by applying the previously read rotation of the x axis to a parent gameobject
-            rotationObject.transform.localRotation = Quaternion.Euler(-rotationXAxis, -rotationYAxis, 0);
+            rotationObject.transform.localRotation = Quaternion.Euler(-rotationXAxis * invertXAxisModifier, -rotationYAxis * invertYAxisModifier, 0);
             //???
             //transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * rotationSpeed, 0);
 
