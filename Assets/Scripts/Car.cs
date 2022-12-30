@@ -52,7 +52,7 @@ public class Car : MonoBehaviour
     {
         if(Input.GetAxis("Vertical")!=0)
         {
-            rigidbody.AddForce(transform.forward * Input.GetAxis("Vertical") * (speed*10) * Time.deltaTime);
+            rigidbody.AddForce(transform.forward * Input.GetAxis("Vertical") * (speed*10000) * Time.deltaTime);
         }
 
         if (Input.GetAxis("Horizontal") != 0)
