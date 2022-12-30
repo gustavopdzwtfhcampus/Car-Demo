@@ -10,6 +10,8 @@ public class MouseController : MonoBehaviour
     Camera camera;
     public float rotationSpeed;
     public float viewAngleLimit;
+    //If true, the camera does not move
+    public bool lockCamera;
     //The rotation applied to the x axis/The vertical rotation of the mouse
     float rotationXAxis = 0;
     //The rotation applied to the y axis/The horizontal rotation of the mouse
@@ -46,39 +48,44 @@ public class MouseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (invertXAxis) { invertXAxisModifier = -1; }
-        else { invertXAxisModifier = 1; }
-
-        if (invertYAxis) { invertYAxisModifier = -1; }
-        else { invertYAxisModifier = 1; }
-
-        //Reads the input of the vertical mouse input, multiplies it with the rotation speed and adds it to the rotation variable of the x axis
-        rotationXAxis += -Input.GetAxis("Mouse Y") * rotationSpeed;
-        //Limits the rotation of the x axis to the specified view angle
-        rotationXAxis = Mathf.Clamp(rotationXAxis, -viewAngleLimit, viewAngleLimit);
-
-        //Reads the input of the horizontal mouse input, multiplies it with the rotation speed and adds it to the rotation variable of the y axis
-        rotationYAxis += Input.GetAxis("Mouse X") * rotationSpeed;
-        //Limits the rotation of the y axis to the specified view angle
-        rotationYAxis = Mathf.Clamp(rotationYAxis, -viewAngleLimit, viewAngleLimit);
-
-        //Changes the rotation of the camera by applying the previously read rotation of the x axis to a parent gameobject
-        rotationObject.transform.localRotation = Quaternion.Euler(-rotationXAxis, -rotationYAxis, 0);
-        //???
-        //transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * rotationSpeed, 0);
-
-        //Reads the input of the mousewheel and subtracts/adds it from/to the cameras current field of view,
-        //however it is not yet actually assigned to the camera, instead in a temporary variable
-        fieldOfViewModifier = camera.fieldOfView - 2*Input.mouseScrollDelta.y;
-        //Clamps the new field of view between the assigned lower and upper limit the field of view should be able to have
-        fieldOfViewModifier = Mathf.Clamp(fieldOfViewModifier, fieldOfViewLimitLow, fieldOfViewLimitUpper);
-        //Assigns the new field of view to the cameras actual field of view
-        camera.fieldOfView = fieldOfViewModifier;
-
-        //Resets the field of view when the mouse wheel is clicked
-        if (Input.GetMouseButtonDown(2))
+        if (!lockCamera)
         {
-            camera.fieldOfView = fieldOfViewStartingValue;
+            //Inverts X Axis
+            if (invertXAxis) { invertXAxisModifier = -1; }
+            else { invertXAxisModifier = 1; }
+
+            //Inverts Y Axis
+            if (invertYAxis) { invertYAxisModifier = -1; }
+            else { invertYAxisModifier = 1; }
+
+            //Reads the input of the vertical mouse input, multiplies it with the rotation speed and adds it to the rotation variable of the x axis
+            rotationXAxis += -Input.GetAxis("Mouse Y") * rotationSpeed;
+            //Limits the rotation of the x axis to the specified view angle
+            rotationXAxis = Mathf.Clamp(rotationXAxis, -viewAngleLimit, viewAngleLimit);
+
+            //Reads the input of the horizontal mouse input, multiplies it with the rotation speed and adds it to the rotation variable of the y axis
+            rotationYAxis += Input.GetAxis("Mouse X") * rotationSpeed;
+            //Limits the rotation of the y axis to the specified view angle
+            rotationYAxis = Mathf.Clamp(rotationYAxis, -viewAngleLimit, viewAngleLimit);
+
+            //Changes the rotation of the camera by applying the previously read rotation of the x axis to a parent gameobject
+            rotationObject.transform.localRotation = Quaternion.Euler(-rotationXAxis, -rotationYAxis, 0);
+            //???
+            //transform.rotation *= Quaternion.Euler(0, Input.GetAxis("Mouse X") * rotationSpeed, 0);
+
+            //Reads the input of the mousewheel and subtracts/adds it from/to the cameras current field of view,
+            //however it is not yet actually assigned to the camera, instead in a temporary variable
+            fieldOfViewModifier = camera.fieldOfView - 2 * Input.mouseScrollDelta.y;
+            //Clamps the new field of view between the assigned lower and upper limit the field of view should be able to have
+            fieldOfViewModifier = Mathf.Clamp(fieldOfViewModifier, fieldOfViewLimitLow, fieldOfViewLimitUpper);
+            //Assigns the new field of view to the cameras actual field of view
+            camera.fieldOfView = fieldOfViewModifier;
+
+            //Resets the field of view when the mouse wheel is clicked
+            if (Input.GetMouseButtonDown(2))
+            {
+                camera.fieldOfView = fieldOfViewStartingValue;
+            }
         }
     }
 }
