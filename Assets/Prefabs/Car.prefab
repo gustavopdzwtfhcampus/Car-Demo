@@ -47,12 +47,12 @@ GameObject:
   - component: {fileID: 2412437602874532070}
   - component: {fileID: 2400577628356541422}
   m_Layer: 0
-  m_Name: SportCar20_WheelRearLeft_LOD2
+  m_Name: WheelRearLeft_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2383102291281335686
 Transform:
   m_ObjectHideFlags: 0
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2381740890324413536}
   m_Layer: 0
-  m_Name: SportCar20_BrakeRearRight
+  m_Name: BrakeRearRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,7 +165,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2383527516746772834}
   m_Layer: 0
-  m_Name: SportCar20_BrakeFrontLeft
+  m_Name: BrakeFrontLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -202,7 +202,7 @@ GameObject:
   - component: {fileID: 2410764512696286982}
   - component: {fileID: 2400785256881948714}
   m_Layer: 0
-  m_Name: SportCar20_WheelRearLeft_LOD0
+  m_Name: WheelRearLeft_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -288,7 +288,6 @@ GameObject:
   - component: {fileID: 2582870318240193722}
   - component: {fileID: 2582870318240193700}
   - component: {fileID: 2582870318240193701}
-  - component: {fileID: 1531369831}
   m_Layer: 0
   m_Name: Car
   m_TagString: Untagged
@@ -382,7 +381,7 @@ LODGroup:
     - renderer: {fileID: 2401338735770624120}
     - renderer: {fileID: 2400589356820064102}
     - renderer: {fileID: 2402168954058912902}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!54 &2582870318240193700
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -411,31 +410,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500cb65ed593a6441931d685790a03e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 100
-  rotation: 30
---- !u!114 &1531369831
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2378310656858709320}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31a8eedb226126c4d96eb4755973b2fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   axleInfos:
-  - leftWheel: {fileID: 890525831}
-    rightWheel: {fileID: 399481268}
+  - leftWheel: {fileID: 2087139768901123870}
+    rightWheel: {fileID: 1608804655500491426}
     motor: 1
     steering: 1
-  - leftWheel: {fileID: 502059876}
-    rightWheel: {fileID: 281548199}
-    motor: 0
+  - leftWheel: {fileID: 5791186930563002638}
+    rightWheel: {fileID: 1924424229990947002}
+    motor: 1
     steering: 0
-  maxMotorTorque: 400
-  maxSteeringAngle: 30
+  maxMotorTorque: 800
+  maxSteeringAngle: 45
 --- !u!1 &2378314880001497442
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,12 +433,12 @@ GameObject:
   - component: {fileID: 2412474486830039340}
   - component: {fileID: 2401338735770624120}
   m_Layer: 0
-  m_Name: SportCar20_Paint_LOD2
+  m_Name: Paint_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2381682954463791062
 Transform:
   m_ObjectHideFlags: 0
@@ -531,12 +516,12 @@ GameObject:
   - component: {fileID: 2411472173284342576}
   - component: {fileID: 2400724560560667208}
   m_Layer: 0
-  m_Name: SportCar20_WheelRearLeft_LOD1
+  m_Name: WheelRearLeft_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2381659136329600108
 Transform:
   m_ObjectHideFlags: 0
@@ -790,7 +775,7 @@ MonoBehaviour:
   rotationObject: {fileID: 2378629732004828580}
   rotationSpeed: 2
   viewAngleLimit: 45
-  lockCamera: 1
+  lockCamera: 0
   invertXAxis: 1
   invertYAxis: 1
   fieldOfViewLimitLow: 40
@@ -807,7 +792,7 @@ GameObject:
   - component: {fileID: 2410642339177952860}
   - component: {fileID: 2400817776561476240}
   m_Layer: 0
-  m_Name: SportCar20_WheelFrontRight_LOD0
+  m_Name: WheelFrontRight_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -893,12 +878,12 @@ GameObject:
   - component: {fileID: 2412521304088084092}
   - component: {fileID: 2400980390823381316}
   m_Layer: 0
-  m_Name: SportCar20_BrakeFrontRight_LOD2
+  m_Name: BrakeFrontRight_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2383223047457084462
 Transform:
   m_ObjectHideFlags: 0
@@ -976,12 +961,12 @@ GameObject:
   - component: {fileID: 2411487931312948694}
   - component: {fileID: 2402330328573842392}
   m_Layer: 0
-  m_Name: SportCar20_Windows_LOD1
+  m_Name: Windows_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2381631058695528908
 Transform:
   m_ObjectHideFlags: 0
@@ -1061,7 +1046,7 @@ GameObject:
   - component: {fileID: 2411446303280714384}
   - component: {fileID: 2402286817379108718}
   m_Layer: 0
-  m_Name: SportCar20_WheelFrontLeft_LOD0
+  m_Name: WheelFrontLeft_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1144,7 +1129,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2381643683580079882}
-  - component: {fileID: 890525831}
+  - component: {fileID: 2087139768901123870}
   m_Layer: 0
   m_Name: WheelFrontLeft
   m_TagString: Untagged
@@ -1170,7 +1155,7 @@ Transform:
   m_Father: {fileID: 4247066388715555309}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!146 &890525831
+--- !u!146 &2087139768901123870
 WheelCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1199,7 +1184,7 @@ WheelCollider:
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!1 &2379065543117103840
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,12 +1197,12 @@ GameObject:
   - component: {fileID: 2411398318724394766}
   - component: {fileID: 2400694298769090892}
   m_Layer: 0
-  m_Name: SportCar20_WheelFrontRight_LOD2
+  m_Name: WheelFrontRight_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2381403864470927816
 Transform:
   m_ObjectHideFlags: 0
@@ -1297,7 +1282,7 @@ GameObject:
   - component: {fileID: 2410736376849216576}
   - component: {fileID: 2400635530635762842}
   m_Layer: 0
-  m_Name: SportCar20_BrakeFrontRightGlow
+  m_Name: BrakeFrontRightGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1380,12 +1365,12 @@ GameObject:
   - component: {fileID: 2410782903988157684}
   - component: {fileID: 2402353212618916646}
   m_Layer: 0
-  m_Name: SportCar20_BrakeRearLeft_LOD1
+  m_Name: BrakeRearLeft_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2383244237246852448
 Transform:
   m_ObjectHideFlags: 0
@@ -1492,7 +1477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2381508777625586088}
   m_Layer: 0
-  m_Name: SportCar20_BrakeFrontRight
+  m_Name: BrakeFrontRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1529,7 +1514,7 @@ GameObject:
   - component: {fileID: 2410706167515854318}
   - component: {fileID: 2402583449132642950}
   m_Layer: 0
-  m_Name: SportCar20_Body_LOD0
+  m_Name: Body_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1614,7 +1599,7 @@ GameObject:
   - component: {fileID: 2412249747617861272}
   - component: {fileID: 2400740703593326198}
   m_Layer: 0
-  m_Name: SportCar20_NumberTypeEU
+  m_Name: NumberTypeEU
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1703,7 +1688,7 @@ GameObject:
   - component: {fileID: 2410665533965636860}
   - component: {fileID: 2400815877967451864}
   m_Layer: 0
-  m_Name: SportCar20_BrakeFrontLeftGlow
+  m_Name: BrakeFrontLeftGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1848,12 +1833,12 @@ GameObject:
   - component: {fileID: 2410732261521086524}
   - component: {fileID: 2400701289009545502}
   m_Layer: 0
-  m_Name: SportCar20_Paint_LOD1
+  m_Name: Paint_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2381303133238338302
 Transform:
   m_ObjectHideFlags: 0
@@ -1931,7 +1916,7 @@ GameObject:
   - component: {fileID: 2412263266259235942}
   - component: {fileID: 2401360365307072692}
   m_Layer: 0
-  m_Name: SportCar20_PlateTypeEU_LOD0
+  m_Name: PlateTypeEU_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2050,12 +2035,12 @@ GameObject:
   - component: {fileID: 2411423094452420752}
   - component: {fileID: 2400746965324511200}
   m_Layer: 0
-  m_Name: SportCar20_PlateTypeEU_LOD1
+  m_Name: PlateTypeEU_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2381634760361442346
 Transform:
   m_ObjectHideFlags: 0
@@ -2134,12 +2119,12 @@ GameObject:
   - component: {fileID: 2411536285454758840}
   - component: {fileID: 2400518886716989764}
   m_Layer: 0
-  m_Name: SportCar20_WheelRearRight_LOD1
+  m_Name: WheelRearRight_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2381523833519625374
 Transform:
   m_ObjectHideFlags: 0
@@ -2219,7 +2204,7 @@ GameObject:
   - component: {fileID: 2381629331174215164}
   - component: {fileID: 2372166500933101968}
   m_Layer: 0
-  m_Name: SportCar20_Suspension_LOD0
+  m_Name: Suspension_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2473,7 +2458,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2383227759418100796}
-  - component: {fileID: 502059876}
+  - component: {fileID: 5791186930563002638}
   m_Layer: 0
   m_Name: WheelRearLeft
   m_TagString: Untagged
@@ -2499,7 +2484,7 @@ Transform:
   m_Father: {fileID: 4247066388715555309}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!146 &502059876
+--- !u!146 &5791186930563002638
 WheelCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2528,7 +2513,7 @@ WheelCollider:
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!1 &2379269011156872470
 GameObject:
   m_ObjectHideFlags: 0
@@ -2575,12 +2560,12 @@ GameObject:
   - component: {fileID: 2410944197965071690}
   - component: {fileID: 2402292114014156946}
   m_Layer: 0
-  m_Name: SportCar20_BrakeRearRight_LOD1
+  m_Name: BrakeRearRight_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2381499270155555226
 Transform:
   m_ObjectHideFlags: 0
@@ -2741,12 +2726,12 @@ GameObject:
   - component: {fileID: 2410701650568791778}
   - component: {fileID: 2401354607292255088}
   m_Layer: 0
-  m_Name: SportCar20_BrakeRearLeft_LOD2
+  m_Name: BrakeRearLeft_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2381609503784918548
 Transform:
   m_ObjectHideFlags: 0
@@ -2824,12 +2809,12 @@ GameObject:
   - component: {fileID: 2411657364261707834}
   - component: {fileID: 2401379233408860496}
   m_Layer: 0
-  m_Name: SportCar20_Body_LOD1
+  m_Name: Body_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2381392526308176250
 Transform:
   m_ObjectHideFlags: 0
@@ -2906,7 +2891,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2381384723694365506}
-  - component: {fileID: 399481268}
+  - component: {fileID: 1608804655500491426}
   m_Layer: 0
   m_Name: WheelFrontRight
   m_TagString: Untagged
@@ -2932,7 +2917,7 @@ Transform:
   m_Father: {fileID: 4247066388715555309}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!146 &399481268
+--- !u!146 &1608804655500491426
 WheelCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2961,7 +2946,7 @@ WheelCollider:
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!1 &2379598068284180118
 GameObject:
   m_ObjectHideFlags: 0
@@ -2974,7 +2959,7 @@ GameObject:
   - component: {fileID: 2412496324492988400}
   - component: {fileID: 2402223701680054492}
   m_Layer: 0
-  m_Name: SportCar20_BrakeRearRight_LOD0
+  m_Name: BrakeRearRight_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3088,7 +3073,7 @@ GameObject:
   - component: {fileID: 2410650007209883702}
   - component: {fileID: 2400526208540959346}
   m_Layer: 0
-  m_Name: SportCar20_WheelRearRight_LOD0
+  m_Name: WheelRearRight_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3174,12 +3159,12 @@ GameObject:
   - component: {fileID: 2412518082595906364}
   - component: {fileID: 2402374677334216208}
   m_Layer: 0
-  m_Name: SportCar20_Body_LOD2
+  m_Name: Body_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2381823169088178886
 Transform:
   m_ObjectHideFlags: 0
@@ -3258,12 +3243,12 @@ GameObject:
   - component: {fileID: 2410901646305284212}
   - component: {fileID: 2400433454776830482}
   m_Layer: 0
-  m_Name: SportCar20_WheelRearRight_LOD2
+  m_Name: WheelRearRight_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2383405711516266044
 Transform:
   m_ObjectHideFlags: 0
@@ -3343,7 +3328,7 @@ GameObject:
   - component: {fileID: 2410809277417061508}
   - component: {fileID: 2400901921428575736}
   m_Layer: 0
-  m_Name: SportCar20_BrakeRearLeft_LOD0
+  m_Name: BrakeRearLeft_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3426,7 +3411,7 @@ GameObject:
   - component: {fileID: 2410967068065767006}
   - component: {fileID: 2400464614306274034}
   m_Layer: 0
-  m_Name: SportCar20_Spoiler_LOD0
+  m_Name: Spoiler_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3675,7 +3660,7 @@ GameObject:
   - component: {fileID: 2410961751842138810}
   - component: {fileID: 2400547656416406030}
   m_Layer: 0
-  m_Name: SportCar20_BrakeFrontRight_LOD0
+  m_Name: BrakeFrontRight_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3756,7 +3741,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2383311768567476582}
   m_Layer: 0
-  m_Name: SportCar20_BrakeRearLeft
+  m_Name: BrakeRearLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3891,12 +3876,12 @@ GameObject:
   - component: {fileID: 2410971116397739124}
   - component: {fileID: 2402312632762127640}
   m_Layer: 0
-  m_Name: SportCar20_WheelFrontLeft_LOD2
+  m_Name: WheelFrontLeft_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2381647452334595326
 Transform:
   m_ObjectHideFlags: 0
@@ -3973,7 +3958,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2383110049862677438}
-  - component: {fileID: 281548199}
+  - component: {fileID: 1924424229990947002}
   m_Layer: 0
   m_Name: WheelRearRight
   m_TagString: Untagged
@@ -3999,7 +3984,7 @@ Transform:
   m_Father: {fileID: 4247066388715555309}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!146 &281548199
+--- !u!146 &1924424229990947002
 WheelCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4028,7 +4013,7 @@ WheelCollider:
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
     m_Stiffness: 1
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!1 &2379777259558690954
 GameObject:
   m_ObjectHideFlags: 0
@@ -4041,12 +4026,12 @@ GameObject:
   - component: {fileID: 2411101322631838084}
   - component: {fileID: 2400589356820064102}
   m_Layer: 0
-  m_Name: SportCar20_Spoiler_LOD2
+  m_Name: Spoiler_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2381708697899987398
 Transform:
   m_ObjectHideFlags: 0
@@ -4124,12 +4109,12 @@ GameObject:
   - component: {fileID: 2411025836378924324}
   - component: {fileID: 2402582788683015630}
   m_Layer: 0
-  m_Name: SportCar20_Spoiler_LOD1
+  m_Name: Spoiler_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2383456411377918486
 Transform:
   m_ObjectHideFlags: 0
@@ -4206,12 +4191,12 @@ GameObject:
   - component: {fileID: 2383185046313989754}
   - component: {fileID: 2370126835076747640}
   m_Layer: 0
-  m_Name: SportCar20_Suspension_LOD1
+  m_Name: Suspension_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2383185046313989754
 Transform:
   m_ObjectHideFlags: 0
@@ -4297,7 +4282,7 @@ GameObject:
   - component: {fileID: 2411619338244513152}
   - component: {fileID: 2400668945902963054}
   m_Layer: 0
-  m_Name: SportCar20_BrakeRearLeftGlow
+  m_Name: BrakeRearLeftGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4502,12 +4487,12 @@ GameObject:
   - component: {fileID: 2411437602752428814}
   - component: {fileID: 2400491548882287214}
   m_Layer: 0
-  m_Name: SportCar20_WheelFrontRight_LOD1
+  m_Name: WheelFrontRight_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2383102831444298896
 Transform:
   m_ObjectHideFlags: 0
@@ -4588,12 +4573,12 @@ GameObject:
   - component: {fileID: 2411617462479057350}
   - component: {fileID: 2400874942204848792}
   m_Layer: 0
-  m_Name: SportCar20_BrakeFrontLeft_LOD1
+  m_Name: BrakeFrontLeft_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2383500188598406900
 Transform:
   m_ObjectHideFlags: 0
@@ -4671,12 +4656,12 @@ GameObject:
   - component: {fileID: 2410800269410475078}
   - component: {fileID: 2401346981627025494}
   m_Layer: 0
-  m_Name: SportCar20_WheelFrontLeft_LOD1
+  m_Name: WheelFrontLeft_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2381658670147579120
 Transform:
   m_ObjectHideFlags: 0
@@ -4757,12 +4742,12 @@ GameObject:
   - component: {fileID: 2411505847013871670}
   - component: {fileID: 2402168954058912902}
   m_Layer: 0
-  m_Name: SportCar20_Windows_LOD2
+  m_Name: Windows_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2383102708291959280
 Transform:
   m_ObjectHideFlags: 0
@@ -4841,7 +4826,7 @@ GameObject:
   - component: {fileID: 2411416357309301528}
   - component: {fileID: 2400475049298984678}
   m_Layer: 0
-  m_Name: SportCar20_BrakeFrontLeft_LOD0
+  m_Name: BrakeFrontLeft_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4924,12 +4909,12 @@ GameObject:
   - component: {fileID: 2410977433866006616}
   - component: {fileID: 2402154537265837352}
   m_Layer: 0
-  m_Name: SportCar20_PlateTypeEU_LOD2
+  m_Name: PlateTypeEU_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2381773787908782362
 Transform:
   m_ObjectHideFlags: 0
@@ -5007,7 +4992,7 @@ GameObject:
   - component: {fileID: 2411070394143912344}
   - component: {fileID: 2400434404439922912}
   m_Layer: 0
-  m_Name: SportCar20_Paint_LOD0
+  m_Name: Paint_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5090,7 +5075,7 @@ GameObject:
   - component: {fileID: 2410557027680668842}
   - component: {fileID: 2402547867135792684}
   m_Layer: 0
-  m_Name: SportCar20_Windows_LOD0
+  m_Name: Windows_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5175,12 +5160,12 @@ GameObject:
   - component: {fileID: 2410650228618709322}
   - component: {fileID: 2402209419987522286}
   m_Layer: 0
-  m_Name: SportCar20_BrakeFrontRight_LOD1
+  m_Name: BrakeFrontRight_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2383079878650820454
 Transform:
   m_ObjectHideFlags: 0
@@ -5424,7 +5409,7 @@ GameObject:
   - component: {fileID: 2412445293316166180}
   - component: {fileID: 2402190874816784046}
   m_Layer: 0
-  m_Name: SportCar20_BrakeRearRightGlow
+  m_Name: BrakeRearRightGlow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5507,12 +5492,12 @@ GameObject:
   - component: {fileID: 2411656832249338592}
   - component: {fileID: 2401367724452879046}
   m_Layer: 0
-  m_Name: SportCar20_BrakeRearRight_LOD2
+  m_Name: BrakeRearRight_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2383032312761705380
 Transform:
   m_ObjectHideFlags: 0
@@ -5590,12 +5575,12 @@ GameObject:
   - component: {fileID: 2410633914162410846}
   - component: {fileID: 2400653637872886854}
   m_Layer: 0
-  m_Name: SportCar20_BrakeFrontLeft_LOD2
+  m_Name: BrakeFrontLeft_LOD2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2383483400847893902
 Transform:
   m_ObjectHideFlags: 0
