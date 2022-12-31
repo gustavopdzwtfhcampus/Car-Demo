@@ -2,41 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class AxleInfo
+{
+    public WheelCollider leftWheel;
+    public WheelCollider rightWheel;
+    public bool motor; //Identifies if the wheels are at the motor of the car
+    public bool steering; //Identifies if the wheels apply steering
+}
 public class Car : MonoBehaviour
 {
-    //Global static instance of car
-    public static Car instance { get; private set; }
-    //The cars rigidbody
-    Rigidbody rigidbody;
-    //Getter for the cars rigidbody
-    public Rigidbody Rigidbody
-    {
-        get { return rigidbody; }
-    }
-    //The rotation vector that gets applied to the car every second when inputing a rotation
-    Vector3 rotationVectorPerSecond;
-    //Speed/Force that gets added to the cars rigidbody
-    public float speed;
-    //The rotation value of the y-axis which gets added to the rotation vector
-    public float rotation;
+    public static Car instance { get; private set; } //Global static instance of car
+    Rigidbody rigidbody; //The cars rigidbody
+    public Rigidbody Rigidbody { get { return rigidbody; } } //Getter for the cars rigidbody 
+    public List<AxleInfo> axleInfos; //List of all the cars axles, which include the wheels
+    public float maxMotorTorque; //The maximum speed the car can "generate"
+    public float maxSteeringAngle; //The maximum angle the front wheels can steer to
+    float motor; //The current torque/force applied to the cars motor
+    float steering; //The current steering applied to the car
 
     private void Awake()
     {
-        //If there is already an instance of a car, remove oneself
+        //If there is already an instance of a car, remove this one
         //Now you could globally call the car at anytime with Car.instance
-        //Example would be Car.instance.speed = xx; or Car.instance.Rigidbody.AddForce(xx);
-        //HOWEVER, TRY TO CALL THE CAR VIA THIS METHOD AS LITTLE AS POSSIBLE
-        //IF YOU FOR EXAMPLE WANT TO IMPLEMENT A POWER UP, TRY TO GET THE INSTANCE OF THE CAR
-        //VIA THE PARAMETER OF YOUR FUNCTION    
-        if (instance != null && instance != this)
-        {
-            Destroy(this);
-        }
-        else
-        {
+        //Example would be Car.instance.Rigidbody.AddForce(xx);
+        if (instance != null && instance != this) { Destroy(this); }
+        else {
             instance = this;
-            //Makes sure that this instance cannot be destroyed anymore
-            DontDestroyOnLoad(this);
+            DontDestroyOnLoad(this); //Makes sure that this instance cannot be destroyed anymore
         }
     }
 
@@ -44,21 +37,34 @@ public class Car : MonoBehaviour
     void Start()
     {
         rigidbody = this.GetComponent<Rigidbody>();
-        rotationVectorPerSecond = new Vector3(0, rotation, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetAxis("Vertical")!=0)
-        {
-            rigidbody.AddForce(transform.forward * Input.GetAxis("Vertical") * (speed*10000) * Time.deltaTime);
-        }
+        
+    }
 
-        if (Input.GetAxis("Horizontal") != 0)
+    public void FixedUpdate()
+    {
+        motor = maxMotorTorque * Input.GetAxis("Vertical"); //Reads vertical input, multiplies it with the max motor torque and adds it to the current motor torque
+        steering = maxSteeringAngle * Input.GetAxis("Horizontal"); //Reads horizontal input and sets the steering accordingly
+
+        //Checks all the axles wheels and applies the correct steering, motor and rotation
+        foreach (AxleInfo axleInfo in axleInfos)
         {
-            Quaternion addRotation = Quaternion.Euler(rotationVectorPerSecond * Input.GetAxis("Horizontal") * Time.deltaTime);
-            rigidbody.MoveRotation(rigidbody.rotation * addRotation);
+            if (axleInfo.steering)
+            {
+                axleInfo.leftWheel.steerAngle = steering;
+                axleInfo.rightWheel.steerAngle = steering;
+            }
+            if (axleInfo.motor)
+            {
+                axleInfo.leftWheel.motorTorque = motor;
+                axleInfo.rightWheel.motorTorque = motor;
+            }
+            ApplyVisualRotation(axleInfo.leftWheel);
+            ApplyVisualRotation(axleInfo.rightWheel);
         }
     }
 
@@ -79,5 +85,22 @@ public class Car : MonoBehaviour
         {
             collision.gameObject.GetComponent<PowerUpInterface>().Activate(this);
         }
+    }
+
+    //Finds the corresponding visual wheel in the child object and correctly applies the rotation
+    public void ApplyVisualRotation(WheelCollider collider)
+    {
+        //Checks if there are even any child objects
+        if (collider.transform.childCount == 0)
+        {
+            return;
+        }
+
+        Transform visualWheel = collider.transform.GetChild(0); //Transform of the object with the wheel mesh
+
+        Vector3 position; //Will not get used, however the collider always gives back the position as well
+        Quaternion rotation; //Stores the rotation of the collider
+        collider.GetWorldPose(out position, out rotation); //Gets position data from the collider
+        visualWheel.transform.rotation = rotation; //Applies the colliders rotation to the wheel mesh
     }
 }
