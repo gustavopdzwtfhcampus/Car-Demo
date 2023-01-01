@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    //Global static instance of game manager
-    public static GameManager instance { get; private set; }
+    public TextMeshProUGUI debugInfo;
+    public bool debugInfoEnabled;
+    public static GameManager instance { get; private set; } //Global static instance of game manager
     private void Awake()
     {
         //If there is already an instance of a game manager, remove oneself
@@ -17,7 +20,42 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             //Makes sure that this instance cannot be destroyed anymore
-            DontDestroyOnLoad(this);
+            //DontDestroyOnLoad(this);
+        }
+    }
+
+    private void Start()
+    {
+
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            debugInfoEnabled = !debugInfoEnabled;
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+
+        if (debugInfoEnabled == true)
+        {
+            debugInfo.enabled = true;
+            debugInfo.text =
+                "Debug Info (T):" + "\n" +
+                "Position:      " + Car.instance.transform.position + "\n" +
+                "Velocity:      " + Car.instance.Rigidbody.velocity + "\n" +
+                "Rpm:           " + Car.instance.axleInfos[0].leftWheel.rpm + "\n" +
+                "Motor Torque:  " + Car.instance.axleInfos[0].leftWheel.motorTorque + "\n" +
+                "Brake Torque:  " + Car.instance.axleInfos[0].leftWheel.brakeTorque + "\n" +
+                "Steer Angle:   " + Car.instance.axleInfos[0].leftWheel.steerAngle + "\n";
+        }
+        else
+        {
+            debugInfo.enabled = false;
         }
     }
 

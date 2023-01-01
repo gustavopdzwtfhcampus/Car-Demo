@@ -30,7 +30,7 @@ public class Car : MonoBehaviour
         if (instance != null && instance != this) { Destroy(this); }
         else {
             instance = this;
-            DontDestroyOnLoad(this); //Makes sure that this instance cannot be destroyed anymore
+            //DontDestroyOnLoad(this); //Makes sure that this instance cannot be destroyed anymore
         }
     }
 
@@ -56,7 +56,7 @@ public class Car : MonoBehaviour
 
     public void FixedUpdate()
     {
-        if(braking == true)
+        if (braking == true)
         {
             motor = 0; //Sets the cars applied motor torque/force to zero, meaning no additional speed gets added to the car
             //Sets the cars braking torque to the max motor torque, meaning it comes to a halt almost immediately
@@ -99,7 +99,7 @@ public class Car : MonoBehaviour
     //When entering a trigger, activate the object it if its a power up
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<PowerUpInterface>() != null)
+        if (other.GetComponent<PowerUpInterface>() != null)
         {
             other.GetComponent<PowerUpInterface>().Activate(this);
         }
