@@ -72,8 +72,16 @@ public class Car : MonoBehaviour
             //Sets the cars braking torque to zero again
             foreach (AxleInfo axleInfo in axleInfos)
             {
-                axleInfo.leftWheel.brakeTorque = 0;
-                axleInfo.rightWheel.brakeTorque = 0;
+                if (Input.GetAxis("Vertical") != 0)
+                {
+                    axleInfo.leftWheel.brakeTorque = 0;
+                    axleInfo.rightWheel.brakeTorque = 0;
+                }
+                else
+                {
+                    axleInfo.leftWheel.brakeTorque = maxMotorTorque/4;
+                    axleInfo.rightWheel.brakeTorque = maxMotorTorque/4;
+                }
             }
         }
         steering = maxSteeringAngle * Input.GetAxis("Horizontal"); //Reads horizontal input and sets the steering accordingly
