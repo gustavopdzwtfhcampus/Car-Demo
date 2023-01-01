@@ -20,6 +20,7 @@ public class Car : MonoBehaviour
     public float maxSteeringAngle; //The maximum angle the front wheels can steer to
     float motor; //The current torque/force applied to the cars motor
     float steering; //The current steering applied to the car
+    bool braking;
 
     private void Awake()
     {
@@ -42,12 +43,39 @@ public class Car : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Checks input of spacebar to control braking of the car
+        if (Input.GetKey(KeyCode.Space))
+        {
+            braking = true;
+        }
+        else
+        {
+            braking = false;
+        }
     }
 
     public void FixedUpdate()
     {
-        motor = maxMotorTorque * Input.GetAxis("Vertical"); //Reads vertical input, multiplies it with the max motor torque and adds it to the current motor torque
+        if(braking == true)
+        {
+            motor = 0; //Sets the cars applied motor torque/force to zero, meaning no additional speed gets added to the car
+            //Sets the cars braking torque to the max motor torque, meaning it comes to a halt almost immediately
+            foreach (AxleInfo axleInfo in axleInfos)
+            {
+                axleInfo.leftWheel.brakeTorque = maxMotorTorque;
+                axleInfo.rightWheel.brakeTorque = maxMotorTorque;
+            }
+        }
+        else
+        {
+            motor = maxMotorTorque * Input.GetAxis("Vertical"); //Reads vertical input, multiplies it with the max motor torque and adds it to the current motor torque
+            //Sets the cars braking torque to zero again
+            foreach (AxleInfo axleInfo in axleInfos)
+            {
+                axleInfo.leftWheel.brakeTorque = 0;
+                axleInfo.rightWheel.brakeTorque = 0;
+            }
+        }
         steering = maxSteeringAngle * Input.GetAxis("Horizontal"); //Reads horizontal input and sets the steering accordingly
 
         //Checks all the axles wheels and applies the correct steering, motor and rotation

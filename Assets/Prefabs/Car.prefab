@@ -420,7 +420,7 @@ MonoBehaviour:
     motor: 1
     steering: 0
   maxMotorTorque: 800
-  maxSteeringAngle: 45
+  maxSteeringAngle: 35
 --- !u!1 &2378314880001497442
 GameObject:
   m_ObjectHideFlags: 0
