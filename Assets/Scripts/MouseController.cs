@@ -54,7 +54,7 @@ public class MouseController : MonoBehaviour
     {
         //The anti rotation object always has a rotation of zero on all its axis,
         //meaning its children objects will not get affected by the cars rotation
-        antiRotationObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        //antiRotationObject.transform.rotation = Quaternion.Euler(0, -Car.instance.transform.rotation.y, 0);
 
         if (!lockCamera)
         {
