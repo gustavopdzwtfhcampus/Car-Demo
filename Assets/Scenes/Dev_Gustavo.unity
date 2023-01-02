@@ -3074,6 +3074,18 @@ PrefabInstance:
       propertyPath: m_ClearFlags
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2378629733210599619, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
+      propertyPath: viewAngleLimitHorizontal
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378629733210599619, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
+      propertyPath: viewAngleLimitVerticalLower
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 2378629733210599619, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
+      propertyPath: viewAngleLimitVerticalUpper
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 2379121428010921136, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
       propertyPath: m_Name
       value: WheelHubRearRight

@@ -9,7 +9,9 @@ public class MouseController : MonoBehaviour
     //The main camera
     Camera camera;
     public float rotationSpeed;
-    public float viewAngleLimit;
+    public float viewAngleLimitHorizontal;
+    public float viewAngleLimitVerticalUpper;
+    public float viewAngleLimitVerticalLower;
     //If true, the camera does not move
     public bool lockCamera;
     //The rotation applied to the x axis/The vertical rotation of the mouse
@@ -61,12 +63,12 @@ public class MouseController : MonoBehaviour
             //Reads the input of the vertical mouse input, multiplies it with the rotation speed and adds it to the rotation variable of the x axis
             rotationXAxis += -Input.GetAxis("Mouse Y") * rotationSpeed;
             //Limits the rotation of the x axis to the specified view angle
-            rotationXAxis = Mathf.Clamp(rotationXAxis, -viewAngleLimit, viewAngleLimit);
+            rotationXAxis = Mathf.Clamp(rotationXAxis, -viewAngleLimitVerticalLower, viewAngleLimitVerticalUpper);
 
             //Reads the input of the horizontal mouse input, multiplies it with the rotation speed and adds it to the rotation variable of the y axis
             rotationYAxis += Input.GetAxis("Mouse X") * rotationSpeed;
             //Limits the rotation of the y axis to the specified view angle
-            rotationYAxis = Mathf.Clamp(rotationYAxis, -viewAngleLimit, viewAngleLimit);
+            rotationYAxis = Mathf.Clamp(rotationYAxis, -viewAngleLimitHorizontal, viewAngleLimitHorizontal);
 
             //Changes the rotation of the camera by applying the previously read rotation of the x axis to a parent gameobject
             rotationObject.transform.localRotation = Quaternion.Euler(-rotationXAxis * invertXAxisModifier, -rotationYAxis * invertYAxisModifier, 0);
