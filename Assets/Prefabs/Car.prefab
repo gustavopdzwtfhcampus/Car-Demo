@@ -772,6 +772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b28e625cfea7f40b8a4d75b1fcae4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  antiRotationObject: {fileID: 7016532918260785448}
   rotationObject: {fileID: 2378629732004828580}
   rotationSpeed: 2
   viewAngleLimitHorizontal: 90
