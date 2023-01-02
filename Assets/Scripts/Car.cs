@@ -21,6 +21,7 @@ public class Car : MonoBehaviour
     float motor; //The current torque/force applied to the cars motor
     float steering; //The current steering applied to the car
     bool braking;
+    [ReadOnly] bool allWheelsGrounded;
 
     private void Awake()
     {
@@ -69,7 +70,7 @@ public class Car : MonoBehaviour
         else
         {
             motor = maxMotorTorque * Input.GetAxis("Vertical"); //Reads vertical input, multiplies it with the max motor torque and adds it to the current motor torque
-            //Sets the cars braking torque to zero again
+            //Sets the cars braking torque to zero again...
             foreach (AxleInfo axleInfo in axleInfos)
             {
                 if (Input.GetAxis("Vertical") != 0)
@@ -77,6 +78,7 @@ public class Car : MonoBehaviour
                     axleInfo.leftWheel.brakeTorque = 0;
                     axleInfo.rightWheel.brakeTorque = 0;
                 }
+                //...unless the input is zero, then the car should stop on its own, but gradually
                 else
                 {
                     axleInfo.leftWheel.brakeTorque = maxMotorTorque/4;
@@ -101,6 +103,30 @@ public class Car : MonoBehaviour
             }
             ApplyVisualRotation(axleInfo.leftWheel);
             ApplyVisualRotation(axleInfo.rightWheel);
+        }
+
+        int isGroundedCounter = 0;
+        foreach (AxleInfo axleInfo in axleInfos)
+        {
+            if (axleInfo.leftWheel.isGrounded)
+            {
+                isGroundedCounter++;
+            }
+            if (axleInfo.rightWheel.isGrounded)
+            {
+                isGroundedCounter++;
+            }
+        }
+
+        if(isGroundedCounter < axleInfos.Count * 2)
+        {
+            allWheelsGrounded = false;
+            print("NOT GROUNDED");
+        }
+        else
+        {
+            allWheelsGrounded = true;
+            print("IS GROUNDED");
         }
     }
 
