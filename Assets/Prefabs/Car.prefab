@@ -307,7 +307,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2378629732004828583}
+  - {fileID: 3844294973439662398}
   - {fileID: 2383083521409145080}
   - {fileID: 2381710099160807008}
   - {fileID: 2381528729729221758}
@@ -420,7 +420,7 @@ MonoBehaviour:
     motor: 1
     steering: 0
   maxMotorTorque: 800
-  maxSteeringAngle: 45
+  maxSteeringAngle: 35
 --- !u!1 &2378314880001497442
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,13 +613,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2378629732004828580}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2378629733210599616}
-  m_Father: {fileID: 2383169393480005812}
+  m_Father: {fileID: 3844294973439662398}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2378629732046319901
@@ -774,7 +774,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationObject: {fileID: 2378629732004828580}
   rotationSpeed: 2
-  viewAngleLimit: 45
+  viewAngleLimitHorizontal: 90
+  viewAngleLimitVerticalUpper: 60
+  viewAngleLimitVerticalLower: 20
   lockCamera: 0
   invertXAxis: 1
   invertYAxis: 1
@@ -1446,7 +1448,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2381390341645835148}
   m_Layer: 0
-  m_Name: SportCar20_WheelHubRearRight
+  m_Name: WheelHubRearRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1769,7 +1771,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2381663564639458078}
   m_Layer: 0
-  m_Name: SportCar20_WheelHubRearLeft
+  m_Name: WheelHubRearLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1800,7 +1802,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2383451393698687724}
   m_Layer: 0
-  m_Name: SportCar20_WheelHubFrontLeft
+  m_Name: WheelHubFrontLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2295,7 +2297,7 @@ GameObject:
   - component: {fileID: 2411617929361936068}
   - component: {fileID: 2400475437357707744}
   m_Layer: 0
-  m_Name: SportCar20_TurnSignalRight
+  m_Name: TurnSignalRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2331,7 +2333,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2379243448240987346}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2378,7 +2380,7 @@ GameObject:
   - component: {fileID: 2410737222101608922}
   - component: {fileID: 2402232661272652386}
   m_Layer: 0
-  m_Name: SportCar20_BrakeLights
+  m_Name: BrakeLights
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2414,7 +2416,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2379244526320762786}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2643,7 +2645,7 @@ GameObject:
   - component: {fileID: 2410996644966986732}
   - component: {fileID: 2402249560693070272}
   m_Layer: 0
-  m_Name: SportCar20_ReverseLight
+  m_Name: ReverseLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2679,7 +2681,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2379290298486434718}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3040,7 +3042,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2381546084396695010}
   m_Layer: 0
-  m_Name: SportCar20_WheelHubFrontRight
+  m_Name: WheelHubFrontRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3494,7 +3496,7 @@ GameObject:
   - component: {fileID: 2410997560325205518}
   - component: {fileID: 2400878460217986376}
   m_Layer: 0
-  m_Name: SportCar20_MainLight
+  m_Name: MainLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3530,7 +3532,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2379662546217882038}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -3577,7 +3579,7 @@ GameObject:
   - component: {fileID: 2411072408988450398}
   - component: {fileID: 2400709552237227424}
   m_Layer: 0
-  m_Name: SportCar20_RearSideLight
+  m_Name: RearSideLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3613,7 +3615,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2379675889751428254}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -4365,7 +4367,7 @@ GameObject:
   - component: {fileID: 2410811172727505716}
   - component: {fileID: 2400731279102969974}
   m_Layer: 0
-  m_Name: SportCar20_TurnSignalLeft
+  m_Name: TurnSignalLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4401,7 +4403,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2379822280831430292}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5243,7 +5245,7 @@ GameObject:
   - component: {fileID: 2410805858126329338}
   - component: {fileID: 2400493359037245174}
   m_Layer: 0
-  m_Name: SportCar20_DayTimeLight
+  m_Name: DayTimeLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5279,7 +5281,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2380029978545474714}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5326,7 +5328,7 @@ GameObject:
   - component: {fileID: 2410683946013535234}
   - component: {fileID: 2400942302438201338}
   m_Layer: 0
-  m_Name: SportCar20_FogLight
+  m_Name: FogLight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5362,7 +5364,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2380087397014211668}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -5646,3 +5648,35 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &7016532918260785448
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3844294973439662398}
+  m_Layer: 0
+  m_Name: Anti Rotation Object
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3844294973439662398
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7016532918260785448}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2378629732004828583}
+  m_Father: {fileID: 2383169393480005812}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

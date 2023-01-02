@@ -20,6 +20,11 @@ public class Car : MonoBehaviour
     public float maxSteeringAngle; //The maximum angle the front wheels can steer to
     float motor; //The current torque/force applied to the cars motor
     float steering; //The current steering applied to the car
+    //For checking if the car/motor should be braking or not
+    bool braking;
+    //For checking if all four wheels are grounded
+    bool allWheelsGrounded;
+    public bool AllWheelsGrounded { get { return allWheelsGrounded;  } }
 
     private void Awake()
     {
@@ -29,7 +34,7 @@ public class Car : MonoBehaviour
         if (instance != null && instance != this) { Destroy(this); }
         else {
             instance = this;
-            DontDestroyOnLoad(this); //Makes sure that this instance cannot be destroyed anymore
+            //DontDestroyOnLoad(this); //Makes sure that this instance cannot be destroyed anymore
         }
     }
 
@@ -42,12 +47,48 @@ public class Car : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //Checks input of spacebar to control braking of the car
+        if (Input.GetKey(KeyCode.Space))
+        {
+            braking = true;
+        }
+        else
+        {
+            braking = false;
+        }
     }
 
     public void FixedUpdate()
     {
-        motor = maxMotorTorque * Input.GetAxis("Vertical"); //Reads vertical input, multiplies it with the max motor torque and adds it to the current motor torque
+        if (braking == true)
+        {
+            motor = 0; //Sets the cars applied motor torque/force to zero, meaning no additional speed gets added to the car
+            //Sets the cars braking torque to the max motor torque, meaning it comes to a halt almost immediately
+            foreach (AxleInfo axleInfo in axleInfos)
+            {
+                axleInfo.leftWheel.brakeTorque = maxMotorTorque;
+                axleInfo.rightWheel.brakeTorque = maxMotorTorque;
+            }
+        }
+        else
+        {
+            motor = maxMotorTorque * Input.GetAxis("Vertical"); //Reads vertical input, multiplies it with the max motor torque and adds it to the current motor torque
+            //Sets the cars braking torque to zero again...
+            foreach (AxleInfo axleInfo in axleInfos)
+            {
+                if (Input.GetAxis("Vertical") != 0)
+                {
+                    axleInfo.leftWheel.brakeTorque = 0;
+                    axleInfo.rightWheel.brakeTorque = 0;
+                }
+                //...unless the input is zero, then the car should stop on its own, but gradually
+                else
+                {
+                    axleInfo.leftWheel.brakeTorque = maxMotorTorque/4;
+                    axleInfo.rightWheel.brakeTorque = maxMotorTorque/4;
+                }
+            }
+        }
         steering = maxSteeringAngle * Input.GetAxis("Horizontal"); //Reads horizontal input and sets the steering accordingly
 
         //Checks all the axles wheels and applies the correct steering, motor and rotation
@@ -66,12 +107,40 @@ public class Car : MonoBehaviour
             ApplyVisualRotation(axleInfo.leftWheel);
             ApplyVisualRotation(axleInfo.rightWheel);
         }
+
+        //checks if all four wheels are grounded
+        int isGroundedCounter = 0;
+        foreach (AxleInfo axleInfo in axleInfos)
+        {
+            if (axleInfo.leftWheel.isGrounded)
+            {
+                isGroundedCounter++;
+            }
+            if (axleInfo.rightWheel.isGrounded)
+            {
+                isGroundedCounter++;
+            }
+        }
+        if(isGroundedCounter < axleInfos.Count * 2)
+        {
+            allWheelsGrounded = false;
+        }
+        else
+        {
+            allWheelsGrounded = true;
+        }
+
+        //allows for midair rotation adjustments to the car
+        Quaternion addRotationHorizontal = Quaternion.Euler(new Vector3(0, 0, 1) * -Input.GetAxis("Horizontal"));
+        rigidbody.MoveRotation(rigidbody.rotation * addRotationHorizontal);
+        Quaternion addRotationVertical = Quaternion.Euler(new Vector3(1, 0, 0) * Input.GetAxis("Vertical"));
+        rigidbody.MoveRotation(rigidbody.rotation * addRotationVertical);
     }
 
     //When entering a trigger, activate the object it if its a power up
     private void OnTriggerEnter(Collider other)
     {
-        if(other.GetComponent<PowerUpInterface>() != null)
+        if (other.GetComponent<PowerUpInterface>() != null)
         {
             other.GetComponent<PowerUpInterface>().Activate(this);
         }
