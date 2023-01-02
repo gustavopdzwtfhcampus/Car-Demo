@@ -20,8 +20,11 @@ public class Car : MonoBehaviour
     public float maxSteeringAngle; //The maximum angle the front wheels can steer to
     float motor; //The current torque/force applied to the cars motor
     float steering; //The current steering applied to the car
+    //For checking if the car/motor should be braking or not
     bool braking;
-    [ReadOnly] bool allWheelsGrounded;
+    //For checking if all four wheels are grounded
+    bool allWheelsGrounded;
+    public bool AllWheelsGrounded { get { return allWheelsGrounded;  } }
 
     private void Awake()
     {
@@ -105,6 +108,7 @@ public class Car : MonoBehaviour
             ApplyVisualRotation(axleInfo.rightWheel);
         }
 
+        //checks if all four wheels are grounded
         int isGroundedCounter = 0;
         foreach (AxleInfo axleInfo in axleInfos)
         {
@@ -117,17 +121,20 @@ public class Car : MonoBehaviour
                 isGroundedCounter++;
             }
         }
-
         if(isGroundedCounter < axleInfos.Count * 2)
         {
             allWheelsGrounded = false;
-            print("NOT GROUNDED");
         }
         else
         {
             allWheelsGrounded = true;
-            print("IS GROUNDED");
         }
+
+        //allows for midair rotation adjustments to the car
+        Quaternion addRotationHorizontal = Quaternion.Euler(new Vector3(0, 0, 1) * -Input.GetAxis("Horizontal"));
+        rigidbody.MoveRotation(rigidbody.rotation * addRotationHorizontal);
+        Quaternion addRotationVertical = Quaternion.Euler(new Vector3(1, 0, 0) * Input.GetAxis("Vertical"));
+        rigidbody.MoveRotation(rigidbody.rotation * addRotationVertical);
     }
 
     //When entering a trigger, activate the object it if its a power up

@@ -51,7 +51,8 @@ public class GameManager : MonoBehaviour
                 "Rpm:           " + Car.instance.axleInfos[0].leftWheel.rpm + "\n" +
                 "Motor Torque:  " + Car.instance.axleInfos[0].leftWheel.motorTorque + "\n" +
                 "Brake Torque:  " + Car.instance.axleInfos[0].leftWheel.brakeTorque + "\n" +
-                "Steer Angle:   " + Car.instance.axleInfos[0].leftWheel.steerAngle + "\n";
+                "Steer Angle:   " + Car.instance.axleInfos[0].leftWheel.steerAngle + "\n" +
+                "Grounded:      " + Car.instance.AllWheelsGrounded;
         }
         else
         {
