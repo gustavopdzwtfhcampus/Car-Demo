@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MouseController : MonoBehaviour
 {
+    //The object which opposes the cars rotation
+    public GameObject antiRotationObject;
     //The object which gets rotated
     public GameObject rotationObject;
     //The main camera
@@ -50,6 +52,10 @@ public class MouseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //The anti rotation object always has a rotation of zero on all its axis,
+        //meaning its children objects will not get affected by the cars rotation
+        antiRotationObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+
         if (!lockCamera)
         {
             //Inverts X Axis

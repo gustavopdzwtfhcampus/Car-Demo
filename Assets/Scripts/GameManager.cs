@@ -47,6 +47,7 @@ public class GameManager : MonoBehaviour
             debugInfo.text =
                 "Debug Info (T):" + "\n" +
                 "Position:      " + Car.instance.transform.position + "\n" +
+                "Rotation:      " + Car.instance.transform.rotation + "\n" +
                 "Velocity:      " + Car.instance.Rigidbody.velocity + "\n" +
                 "Rpm:           " + Car.instance.axleInfos[0].leftWheel.rpm + "\n" +
                 "Motor Torque:  " + Car.instance.axleInfos[0].leftWheel.motorTorque + "\n" +

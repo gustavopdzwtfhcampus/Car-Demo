@@ -1614,6 +1614,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1474087630 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7016532918260785448, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
+  m_PrefabInstance: {fileID: 2378629733594952053}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &1490218344
 Mesh:
   m_ObjectHideFlags: 0
@@ -3070,78 +3075,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car
       objectReference: {fileID: 0}
-    - target: {fileID: 2378629733210599617, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_ClearFlags
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2378629733210599619, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: viewAngleLimitHorizontal
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378629733210599619, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: viewAngleLimitVerticalLower
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 2378629733210599619, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: viewAngleLimitVerticalUpper
-      value: 60
-      objectReference: {fileID: 0}
-    - target: {fileID: 2379121428010921136, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Name
-      value: WheelHubRearRight
-      objectReference: {fileID: 0}
-    - target: {fileID: 2379193618602599664, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Name
-      value: WheelHubRearLeft
-      objectReference: {fileID: 0}
-    - target: {fileID: 2379198358323701586, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Name
-      value: WheelHubFrontLeft
-      objectReference: {fileID: 0}
-    - target: {fileID: 2379216046005375152, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2379243448240987346, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Name
-      value: TurnSignalRight
-      objectReference: {fileID: 0}
-    - target: {fileID: 2379244526320762786, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Name
-      value: BrakeLights
-      objectReference: {fileID: 0}
-    - target: {fileID: 2379290298486434718, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Name
-      value: ReverseLight
-      objectReference: {fileID: 0}
-    - target: {fileID: 2379623244296156132, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Name
-      value: WheelHubFrontRight
-      objectReference: {fileID: 0}
-    - target: {fileID: 2379662546217882038, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Name
-      value: MainLight
-      objectReference: {fileID: 0}
-    - target: {fileID: 2379675889751428254, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Name
-      value: RearSideLight
-      objectReference: {fileID: 0}
-    - target: {fileID: 2379822280831430292, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Name
-      value: TurnSignalLeft
-      objectReference: {fileID: 0}
-    - target: {fileID: 2379839772580740580, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2380029978545474714, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Name
-      value: DayTimeLight
-      objectReference: {fileID: 0}
-    - target: {fileID: 2380087397014211668, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Name
-      value: FogLight
-      objectReference: {fileID: 0}
+      propertyPath: antiRotationObject
+      value: 
+      objectReference: {fileID: 1474087630}
     - target: {fileID: 2383169393480005812, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3184,42 +3121,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2383169393480005812, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2400475437357707744, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2400493359037245174, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2400709552237227424, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2400731279102969974, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2400878460217986376, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2400942302438201338, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2402232661272652386, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2402249560693070272, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2582870318240193700, guid: b3e5a331191e52f4b869ff50cdc39964, type: 3}
-      propertyPath: m_Constraints
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
