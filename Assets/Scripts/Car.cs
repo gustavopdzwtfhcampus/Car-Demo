@@ -25,6 +25,7 @@ public class Car : MonoBehaviour
     //For checking if all wheels are grounded
     bool allWheelsGrounded;
     public bool AllWheelsGrounded { get { return allWheelsGrounded;  } }
+
     //How fast the car can rotate when mid air
     public float midAirRotationSpeed;
 
@@ -110,7 +111,8 @@ public class Car : MonoBehaviour
             ApplyVisualRotation(axleInfo.rightWheel);
         }
 
-        //checks if all four wheels are grounded
+        //Checks if all four wheels are grounded
+        //RIGHT NOW UNUSED, BUT USEFUL FOR LATER
         int isGroundedCounter = 0;
         foreach (AxleInfo axleInfo in axleInfos)
         {
@@ -131,12 +133,16 @@ public class Car : MonoBehaviour
         {
             allWheelsGrounded = true;
         }
+        //
 
-        //allows for midair rotation adjustments to the car
-        Quaternion addRotationHorizontal = Quaternion.Euler(new Vector3(0, 0, midAirRotationSpeed) * -Input.GetAxis("Horizontal"));
-        rigidbody.MoveRotation(rigidbody.rotation * addRotationHorizontal);
-        Quaternion addRotationVertical = Quaternion.Euler(new Vector3(midAirRotationSpeed, 0, 0) * Input.GetAxis("Vertical"));
-        rigidbody.MoveRotation(rigidbody.rotation * addRotationVertical);
+        if(allWheelsGrounded == false)
+        {
+            //Allows for midair rotation adjustments to the car
+            Quaternion addRotationHorizontal = Quaternion.Euler(new Vector3(0, 0, midAirRotationSpeed) * -Input.GetAxis("Horizontal"));
+            rigidbody.MoveRotation(rigidbody.rotation * addRotationHorizontal);
+            Quaternion addRotationVertical = Quaternion.Euler(new Vector3(midAirRotationSpeed, 0, 0) * Input.GetAxis("Vertical"));
+            rigidbody.MoveRotation(rigidbody.rotation * addRotationVertical);
+        }
     }
 
     //When entering a trigger, activate the object it if its a power up
