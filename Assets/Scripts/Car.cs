@@ -22,9 +22,11 @@ public class Car : MonoBehaviour
     float steering; //The current steering applied to the car
     //For checking if the car/motor should be braking or not
     bool braking;
-    //For checking if all four wheels are grounded
+    //For checking if all wheels are grounded
     bool allWheelsGrounded;
     public bool AllWheelsGrounded { get { return allWheelsGrounded;  } }
+    //How fast the car can rotate when mid air
+    public float midAirRotationSpeed;
 
     private void Awake()
     {
@@ -131,9 +133,9 @@ public class Car : MonoBehaviour
         }
 
         //allows for midair rotation adjustments to the car
-        Quaternion addRotationHorizontal = Quaternion.Euler(new Vector3(0, 0, 1) * -Input.GetAxis("Horizontal"));
+        Quaternion addRotationHorizontal = Quaternion.Euler(new Vector3(0, 0, midAirRotationSpeed) * -Input.GetAxis("Horizontal"));
         rigidbody.MoveRotation(rigidbody.rotation * addRotationHorizontal);
-        Quaternion addRotationVertical = Quaternion.Euler(new Vector3(1, 0, 0) * Input.GetAxis("Vertical"));
+        Quaternion addRotationVertical = Quaternion.Euler(new Vector3(midAirRotationSpeed, 0, 0) * Input.GetAxis("Vertical"));
         rigidbody.MoveRotation(rigidbody.rotation * addRotationVertical);
     }
 

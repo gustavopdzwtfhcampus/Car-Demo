@@ -16,6 +16,8 @@ public class MouseController : MonoBehaviour
     public float viewAngleLimitVerticalLower;
     //If true, the camera does not move
     public bool lockCamera;
+    //Wether the cameras rotation should match the cars rotation or not
+    public bool matchCarRotation;
     //The rotation applied to the x axis/The vertical rotation of the mouse
     float rotationXAxis = 0;
     //The rotation applied to the y axis/The horizontal rotation of the mouse
@@ -52,11 +54,29 @@ public class MouseController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //The anti rotation object always has a rotation of zero on all its axis,
-        //meaning its children objects will not get affected by the cars rotation
-        //antiRotationObject.transform.rotation = Quaternion.Euler(0, -Car.instance.transform.rotation.y, 0);
+        //WIP
+        //The anti rotation object always has a rotation of zero on its x and z axis
+        //, its y axis rotation mirrors the cars y rotation
+        //CLOSE ATTEMPT
+        /*antiRotationObject.transform.localEulerAngles = new Vector3(
+            -UnityEditor.TransformUtils.GetInspectorRotation(Car.instance.transform).x, 
+            0, 
+            -UnityEditor.TransformUtils.GetInspectorRotation(Car.instance.transform).z);*/
+        //Moves the anti rotation object along with the car
+        //This could also be achieved by assigning it as a child object of the car
+        //however opposing the cars x and z axis rotation is as of now unsolvable this way
+        antiRotationObject.transform.position = new Vector3(Car.instance.transform.position.x, Car.instance.transform.position.y + 0.5f, Car.instance.transform.position.z);
+        if (matchCarRotation == true)
+        {
+            UnityEditor.TransformUtils.SetInspectorRotation(antiRotationObject.transform, UnityEditor.TransformUtils.GetInspectorRotation(Car.instance.transform));
+        }
+        else
+        {
+            antiRotationObject.transform.eulerAngles = new Vector3(0, UnityEditor.TransformUtils.GetInspectorRotation(Car.instance.transform).y, 0);
+            //UnityEditor.TransformUtils.SetInspectorRotation(antiRotationObject.transform, new Vector3(0, UnityEditor.TransformUtils.GetInspectorRotation(Car.instance.transform).y, 0));
+        }
 
-        if (!lockCamera)
+        if (lockCamera == false)
         {
             //Inverts X Axis
             if (invertXAxis) { invertXAxisModifier = -1; }

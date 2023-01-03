@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugInfo: {fileID: 0}
-  debugInfoEnabled: 1
+  debugInfoEnabled: 0

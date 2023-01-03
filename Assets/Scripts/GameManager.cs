@@ -45,15 +45,15 @@ public class GameManager : MonoBehaviour
         {
             debugInfo.enabled = true;
             debugInfo.text =
-                "Debug Info (T):" + "\n" +
-                "Position:      " + Car.instance.transform.position + "\n" +
-                "Rotation:      " + Car.instance.transform.rotation + "\n" +
-                "Velocity:      " + Car.instance.Rigidbody.velocity + "\n" +
-                "Rpm:           " + Car.instance.axleInfos[0].leftWheel.rpm + "\n" +
-                "Motor Torque:  " + Car.instance.axleInfos[0].leftWheel.motorTorque + "\n" +
-                "Brake Torque:  " + Car.instance.axleInfos[0].leftWheel.brakeTorque + "\n" +
-                "Steer Angle:   " + Car.instance.axleInfos[0].leftWheel.steerAngle + "\n" +
-                "Grounded:      " + Car.instance.AllWheelsGrounded;
+                "Debug Info (T): " + "\n" + "\n" +
+                "Position: " + Car.instance.transform.position + "\n" +
+                "Rotation: " + UnityEditor.TransformUtils.GetInspectorRotation(Car.instance.transform) + "\n" +
+                "Velocity: " + Car.instance.Rigidbody.velocity + "\n" +
+                "Rpm: " + Car.instance.axleInfos[0].leftWheel.rpm + "\n" +
+                "Motor Torque: " + Car.instance.axleInfos[0].leftWheel.motorTorque + "\n" +
+                "Brake Torque: " + Car.instance.axleInfos[0].leftWheel.brakeTorque + "\n" +
+                "Steer Angle: " + Car.instance.axleInfos[0].leftWheel.steerAngle + "\n" +
+                "Grounded: " + Car.instance.AllWheelsGrounded;
         }
         else
         {
