@@ -6,6 +6,7 @@ using UnityEngine;
 //Can be put before a variable so that it cannot be modified in the inspector
 //Useful in development only for cases where you want to view the variables information in the inspector
 //for debugging purposes, but dont want to give anybody the option to modify the information
+/*
 public class ReadOnlyAttribute : PropertyAttribute
 {
 
@@ -29,3 +30,4 @@ public class ReadOnlyDrawer : PropertyDrawer
         GUI.enabled = true;
     }
 }
+*/

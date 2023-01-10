@@ -54,7 +54,8 @@ public class GameManager : MonoBehaviour
             debugInfo.text =
                 "Debug Info (T): " + "\n" + "\n" +
                 "Position: " + Car.instance.transform.position + "\n" +
-                "Rotation: " + UnityEditor.TransformUtils.GetInspectorRotation(Car.instance.transform) + "\n" +
+                //"Rotation: " + UnityEditor.TransformUtils.GetInspectorRotation(Car.instance.transform) + "\n" +
+                "Rotation:" + Car.instance.Rigidbody.transform.eulerAngles + "\n" +
                 "Velocity: " + Car.instance.Rigidbody.velocity + "\n" +
                 "Rpm: " + Car.instance.axleInfos[0].leftWheel.rpm + "\n" +
                 "Motor Torque: " + Car.instance.axleInfos[0].leftWheel.motorTorque + "\n" +

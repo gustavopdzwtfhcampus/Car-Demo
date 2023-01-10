@@ -65,14 +65,18 @@ public class MouseController : MonoBehaviour
         //Moves the anti rotation object along with the car
         //This could also be achieved by assigning it as a child object of the car
         //however opposing the cars x and z axis rotation is as of now unsolvable this way
+
+        //IMPORTANT using UnityEditor... does not allow for a build of the project
         antiRotationObject.transform.position = new Vector3(Car.instance.transform.position.x, Car.instance.transform.position.y + 0.5f, Car.instance.transform.position.z);
         if (matchCarRotation == true)
         {
-            UnityEditor.TransformUtils.SetInspectorRotation(antiRotationObject.transform, UnityEditor.TransformUtils.GetInspectorRotation(Car.instance.transform));
+            //UnityEditor.TransformUtils.SetInspectorRotation(antiRotationObject.transform, UnityEditor.TransformUtils.GetInspectorRotation(Car.instance.transform));
+            antiRotationObject.transform.eulerAngles = Car.instance.transform.eulerAngles;
         }
         else
         {
-            antiRotationObject.transform.eulerAngles = new Vector3(0, UnityEditor.TransformUtils.GetInspectorRotation(Car.instance.transform).y, 0);
+            //antiRotationObject.transform.eulerAngles = new Vector3(0, UnityEditor.TransformUtils.GetInspectorRotation(Car.instance.transform).y, 0);
+            antiRotationObject.transform.eulerAngles = new Vector3(0, Car.instance.transform.eulerAngles.y , 0);
             //UnityEditor.TransformUtils.SetInspectorRotation(antiRotationObject.transform, new Vector3(0, UnityEditor.TransformUtils.GetInspectorRotation(Car.instance.transform).y, 0));
         }
 
