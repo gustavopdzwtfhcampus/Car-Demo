@@ -3617,7 +3617,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &683121377
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -24234,7 +24234,7 @@ PrefabInstance:
       objectReference: {fileID: 260210323}
     - target: {fileID: 811973599937677281, guid: cf95035b927cd4847999aa5cb74598b9, type: 3}
       propertyPath: m_VersionIndex
-      value: 3286
+      value: 3292
       objectReference: {fileID: 0}
     - target: {fileID: 811973599937677282, guid: cf95035b927cd4847999aa5cb74598b9, type: 3}
       propertyPath: m_Mesh
@@ -24441,7 +24441,7 @@ PrefabInstance:
       objectReference: {fileID: 350837774}
     - target: {fileID: 6657283556367993415, guid: 83aa5c9c19fea2f40baeba9f03bdcf18, type: 3}
       propertyPath: m_VersionIndex
-      value: 6649
+      value: 6661
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 83aa5c9c19fea2f40baeba9f03bdcf18, type: 3}
@@ -24458,7 +24458,7 @@ PrefabInstance:
       objectReference: {fileID: 1408576180}
     - target: {fileID: 1385184297186496833, guid: 50d216c40718d814c9ce70a0a41cca29, type: 3}
       propertyPath: m_VersionIndex
-      value: 6634
+      value: 6640
       objectReference: {fileID: 0}
     - target: {fileID: 1385184297186496834, guid: 50d216c40718d814c9ce70a0a41cca29, type: 3}
       propertyPath: m_RootOrder
@@ -24701,7 +24701,7 @@ PrefabInstance:
       objectReference: {fileID: 1788338556}
     - target: {fileID: 2575761117170440486, guid: 9038356f87dd29e41a65ab346a9c2a01, type: 3}
       propertyPath: m_VersionIndex
-      value: 6640
+      value: 6646
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9038356f87dd29e41a65ab346a9c2a01, type: 3}
@@ -24718,7 +24718,7 @@ PrefabInstance:
       objectReference: {fileID: 1490218344}
     - target: {fileID: 2824710894384892696, guid: a4523e67c8fbced43bcbe70f5a1ff3c0, type: 3}
       propertyPath: m_VersionIndex
-      value: 6649
+      value: 6652
       objectReference: {fileID: 0}
     - target: {fileID: 2824710894384892699, guid: a4523e67c8fbced43bcbe70f5a1ff3c0, type: 3}
       propertyPath: m_RootOrder

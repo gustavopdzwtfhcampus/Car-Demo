@@ -320,5 +320,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b0a41151e1b244ae140acfe146901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostForce: 2
+  boostForceByMass: 2
   unloadObjectOnCollision: 0

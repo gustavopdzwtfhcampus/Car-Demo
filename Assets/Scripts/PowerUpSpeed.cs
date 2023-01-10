@@ -5,6 +5,7 @@ using UnityEngine;
 public class PowerUpSpeed : MonoBehaviour, PowerUpInterface
 {
     public float duration;
+    public float speedMultiplier;
     public void Activate(Car car)
     {
         //Calls the game manager to play the sound this gameobject should emit
@@ -26,7 +27,7 @@ public class PowerUpSpeed : MonoBehaviour, PowerUpInterface
     public IEnumerator Countdown(float duration, Car car)
     {
         float oldMaxMotorTorque = Car.instance.maxMotorTorque;
-        Car.instance.maxMotorTorque *= 3;
+        Car.instance.maxMotorTorque *= speedMultiplier;
         yield return new WaitForSeconds(duration);
         Car.instance.maxMotorTorque = oldMaxMotorTorque;
     }

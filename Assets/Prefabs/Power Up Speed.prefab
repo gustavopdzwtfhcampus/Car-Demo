@@ -3184,6 +3184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 20
+  speedMultiplier: 4
 --- !u!82 &2575761117170440491
 AudioSource:
   m_ObjectHideFlags: 0

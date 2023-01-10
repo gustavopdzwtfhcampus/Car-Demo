@@ -5,6 +5,7 @@ using UnityEngine;
 public class PowerUpExtraGravity : MonoBehaviour, PowerUpInterface
 {
     public float duration;
+    public float gravityMultiplier;
     public void Activate(Car car)
     {
         //Calls the game manager to play the sound this gameobject should emit
@@ -26,7 +27,7 @@ public class PowerUpExtraGravity : MonoBehaviour, PowerUpInterface
     public IEnumerator Countdown(float duration, Car car)
     {
         Vector3 originalGravity = Physics.gravity;
-        Physics.gravity = new Vector3(0, Physics.gravity.y * 2, 0);
+        Physics.gravity = new Vector3(0, Physics.gravity.y * gravityMultiplier, 0);
         yield return new WaitForSeconds(duration);
         Physics.gravity = originalGravity;
     }
