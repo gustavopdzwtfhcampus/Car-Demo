@@ -25,8 +25,9 @@ public class PowerUpAntiGravity : MonoBehaviour, PowerUpInterface
     //Parameters can be added as needed
     public IEnumerator Countdown(float duration, Car car)
     {
-        car.Rigidbody.useGravity = false;
+        Vector3 originalGravity = Physics.gravity;
+        Physics.gravity = new Vector3(0, 0, 0);
         yield return new WaitForSeconds(duration);
-        car.Rigidbody.useGravity = true;
+        Physics.gravity = originalGravity;
     }
 }

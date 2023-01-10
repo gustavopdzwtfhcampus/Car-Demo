@@ -4,10 +4,19 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
+
 public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI debugInfo;
     public bool debugInfoEnabled;
+    public enum RActivity 
+    {
+        RestartsScene,
+        ResetsCar
+    }
+
+    [Tooltip("Whether pressing the 'R' button should restart the whole scene or only reset the cars position")]
+    public RActivity rActivity;
     public static GameManager instance { get; private set; } //Global static instance of game manager
     private void Awake()
     {
@@ -38,7 +47,15 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.R))
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            switch (rActivity)
+            {
+                case RActivity.RestartsScene:
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    break;
+                case RActivity.ResetsCar:
+                    Car.instance.ResetCar();
+                    break;
+            }
         }
 
         if (debugInfoEnabled == true)
