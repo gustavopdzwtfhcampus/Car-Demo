@@ -7,8 +7,9 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    public TextMeshProUGUI debugInfo;
-    public bool debugInfoEnabled;
+    public TextMeshProUGUI debugInfo; //The text box where the debug information gets displayed
+    public bool debugInfoEnabled; //Whether the debug information should be displayed, can also be modfied ingame with the T key
+    //Enum for the action when pressing the R key
     public enum RActivity 
     {
         RestartsScene,
@@ -40,24 +41,13 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        //Toggles debug information
         if (Input.GetKeyDown(KeyCode.T))
         {
             debugInfoEnabled = !debugInfoEnabled;
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            switch (rActivity)
-            {
-                case RActivity.RestartsScene:
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-                    break;
-                case RActivity.ResetsCar:
-                    Car.instance.ResetCar();
-                    break;
-            }
-        }
-
+        //The content of the debug information
         if (debugInfoEnabled == true)
         {
             debugInfo.enabled = true;
@@ -76,8 +66,24 @@ public class GameManager : MonoBehaviour
         {
             debugInfo.enabled = false;
         }
+
+        //Restarts scene or resets car
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            switch (rActivity)
+            {
+                case RActivity.RestartsScene:
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                    break;
+                case RActivity.ResetsCar:
+                    Car.instance.ResetCar();
+                    break;
+            }
+        }
     }
 
+    //Unloads an object from the game, by deactivating its collider and meshrenderer
+    //making the object invisible and uninteractable
     public void UnloadObject(GameObject gameObject)
     {
         //If the object has a collider, deactivate it
@@ -95,6 +101,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //Checks if the specified object even has an audio sorce on it and plays it if given
     public void PlaySound(GameObject gameObject)
     {
         //If the object has an audiosource on it, play it

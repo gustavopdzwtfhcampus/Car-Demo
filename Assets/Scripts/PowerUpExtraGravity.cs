@@ -27,8 +27,8 @@ public class PowerUpExtraGravity : MonoBehaviour, PowerUpInterface
     public IEnumerator Countdown(float duration, Car car)
     {
         Vector3 originalGravity = Physics.gravity;
-        Physics.gravity = new Vector3(0, Physics.gravity.y * gravityMultiplier, 0);
+        Physics.gravity = new Vector3(0, Physics.gravity.y * gravityMultiplier, 0); //Multiplies the global gravity
         yield return new WaitForSeconds(duration);
-        Physics.gravity = originalGravity;
+        Physics.gravity = originalGravity; //Resets it after duration
     }
 }

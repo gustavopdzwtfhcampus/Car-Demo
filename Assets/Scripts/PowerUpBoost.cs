@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUpBoost : MonoBehaviour, PowerUpInterface
 {
-    public float boostForceByMass;
+    public float boostByMassMultiplier;
     public bool unloadObjectOnCollision;
     public void Activate(Car car)
     {
@@ -14,7 +14,10 @@ public class PowerUpBoost : MonoBehaviour, PowerUpInterface
         //Inbetween the emission of the sound and the unloading of the object
         //The actual functionality of the power up should occur
         //HERE
-        Car.instance.Rigidbody.AddForce(Car.instance.transform.forward * 15000 * boostForceByMass, ForceMode.Impulse);
+
+        //Adds force to the cars forward direction
+        //Using ForceMode.Impulse so that the speed increase is instantaneous
+        Car.instance.Rigidbody.AddForce(Car.instance.transform.forward * Car.instance.Rigidbody.mass * boostByMassMultiplier, ForceMode.Impulse);
 
         //Removes the specified gameobject from the game, visually, meaning it still exists but
         //its colliders and meshrenderers are deactivated
