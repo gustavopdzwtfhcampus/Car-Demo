@@ -27,8 +27,8 @@ public class PowerUpSpeed : MonoBehaviour, PowerUpInterface
     public IEnumerator Countdown(float duration, Car car)
     {
         float oldMaxMotorTorque = Car.instance.maxMotorTorque;
-        Car.instance.maxMotorTorque *= speedMultiplier;
+        Car.instance.maxMotorTorque *= speedMultiplier; //Multiplies the cars wheels max motor torque
         yield return new WaitForSeconds(duration);
-        Car.instance.maxMotorTorque = oldMaxMotorTorque;
+        Car.instance.maxMotorTorque = oldMaxMotorTorque; //Resets it after duration
     }
 }

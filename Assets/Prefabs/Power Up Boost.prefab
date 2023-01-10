@@ -3183,7 +3183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2b0a41151e1b244ae140acfe146901, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boostForceByMass: 2
+  boostByMassMultiplier: 10
   unloadObjectOnCollision: 1
 --- !u!82 &1385184297186496844
 AudioSource:

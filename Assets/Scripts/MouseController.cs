@@ -10,8 +10,8 @@ public class MouseController : MonoBehaviour
     public GameObject rotationObject;
     //The main camera
     Camera camera;
-    public float rotationSpeed;
-    public float viewAngleLimitHorizontal;
+    public float rotationSpeed; //The speed at which the camera rotates with
+    public float viewAngleLimitHorizontal; 
     public float viewAngleLimitVerticalUpper;
     public float viewAngleLimitVerticalLower;
     //If true, the camera does not move
