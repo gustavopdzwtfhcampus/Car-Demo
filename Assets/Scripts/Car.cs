@@ -227,8 +227,8 @@ public class Car : MonoBehaviour
         {
             axleInfo.leftWheel.motorTorque = 0;
             axleInfo.rightWheel.motorTorque = 0;
-            axleInfo.leftWheel.brakeTorque = maxMotorTorque;
-            axleInfo.rightWheel.brakeTorque = maxMotorTorque;
+            axleInfo.leftWheel.brakeTorque = maxMotorTorque * 100;
+            axleInfo.rightWheel.brakeTorque = maxMotorTorque * 100;
         }
     }
 }
