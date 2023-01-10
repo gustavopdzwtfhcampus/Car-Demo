@@ -14,7 +14,9 @@ public class Car : MonoBehaviour
 {
     public static Car instance { get; private set; } //Global static instance of car
     Rigidbody rigidbody; //The cars rigidbody
-    public Rigidbody Rigidbody { get { return rigidbody; } } //Getter for the cars rigidbody 
+    public Rigidbody Rigidbody { get { return rigidbody; } } //Getter for the cars rigidbody
+    Transform transformAtStart; //The cars starting position, rotation and scale
+    public float maxNegativePosition; //The maximum negative y position the car can be positioned in before the game resets
     public List<AxleInfo> axleInfos; //List of all the cars axles, which include the wheels
     public float maxMotorTorque; //The maximum speed the car can "generate"
     public float maxSteeringAngle; //The maximum angle the front wheels can steer to
@@ -45,6 +47,12 @@ public class Car : MonoBehaviour
     void Start()
     {
         rigidbody = this.GetComponent<Rigidbody>();
+
+        transformAtStart = new GameObject().transform; //Creates empty game object which we only use to store the cars initial transform
+        //Copies the cars initial transform data
+        transformAtStart.position = transform.position;
+        transformAtStart.rotation = transform.rotation;
+        transformAtStart.localScale = transform.localScale;
     }
 
     // Update is called once per frame
@@ -58,6 +66,11 @@ public class Car : MonoBehaviour
         else
         {
             braking = false;
+        }
+
+        if(transform.position.y < Mathf.Abs(maxNegativePosition) * -1)
+        {
+            ResetCar();
         }
     }
 
@@ -179,5 +192,21 @@ public class Car : MonoBehaviour
         Quaternion rotation; //Stores the rotation of the collider
         collider.GetWorldPose(out position, out rotation); //Gets position data from the collider
         visualWheel.transform.rotation = rotation; //Applies the colliders rotation to the wheel mesh
+    }
+
+    public void ResetCar()
+    {
+        transform.position = transformAtStart.position;
+        transform.rotation = transformAtStart.rotation;
+        transform.localScale = transformAtStart.localScale;
+        rigidbody.velocity = new Vector3(0, 0, 0);
+        rigidbody.useGravity = true;
+        foreach (AxleInfo axleInfo in axleInfos)
+        {
+            axleInfo.leftWheel.motorTorque = 0;
+            axleInfo.rightWheel.motorTorque = 0;
+            axleInfo.leftWheel.brakeTorque = maxMotorTorque;
+            axleInfo.rightWheel.brakeTorque = maxMotorTorque;
+        }
     }
 }

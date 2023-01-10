@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PowerUpAntiGravity : MonoBehaviour, PowerUpInterface
+public class PowerUpExtraGravity : MonoBehaviour, PowerUpInterface
 {
     public float duration;
     public void Activate(Car car)
@@ -26,7 +26,7 @@ public class PowerUpAntiGravity : MonoBehaviour, PowerUpInterface
     public IEnumerator Countdown(float duration, Car car)
     {
         Vector3 originalGravity = Physics.gravity;
-        Physics.gravity = new Vector3(0, 0, 0);
+        Physics.gravity = new Vector3(0, Physics.gravity.y * 2, 0);
         yield return new WaitForSeconds(duration);
         Physics.gravity = originalGravity;
     }

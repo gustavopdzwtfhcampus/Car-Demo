@@ -513,6 +513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 500cb65ed593a6441931d685790a03e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxNegativePosition: -50
   axleInfos:
   - leftWheel: {fileID: 2732805132474110257}
     rightWheel: {fileID: 3407045725678408845}

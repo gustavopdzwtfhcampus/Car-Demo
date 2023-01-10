@@ -46,3 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugInfo: {fileID: 0}
   debugInfoEnabled: 0
+  rActivity: 1
