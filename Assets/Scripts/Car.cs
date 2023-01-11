@@ -83,6 +83,8 @@ public class Car : MonoBehaviour
         checkWheels();
 
         checkMidAirRotation();
+
+        checkBoosting();
     }
 
     //When entering a trigger, activate the object it if its a power up
@@ -124,19 +126,19 @@ public class Car : MonoBehaviour
     //Checks if all four wheels are grounded
     private void checkIfGrounded()
     {
-        int isGroundedCounter = 0;
+        int groundedCounter = 0;
         foreach (AxleInfo axleInfo in axleInfos)
         {
             if (axleInfo.leftWheel.isGrounded)
             {
-                isGroundedCounter++;
+                groundedCounter++;
             }
             if (axleInfo.rightWheel.isGrounded)
             {
-                isGroundedCounter++;
+                groundedCounter++;
             }
         }
-        if (isGroundedCounter < axleInfos.Count * 2)
+        if (groundedCounter < axleInfos.Count * 2)
         {
             allWheelsGrounded = false;
         }
@@ -213,6 +215,36 @@ public class Car : MonoBehaviour
             rigidbody.MoveRotation(rigidbody.rotation * addRotationHorizontal);
             Quaternion addRotationVertical = Quaternion.Euler(new Vector3(midAirRotationSpeed, 0, 0) * Input.GetAxis("Vertical"));
             rigidbody.MoveRotation(rigidbody.rotation * addRotationVertical);
+        }
+    }
+
+    private void checkBoosting()
+    {
+        foreach (AxleInfo axleInfo in axleInfos)
+        {
+            if (axleInfo.steering)
+            {
+                WheelHit wheelHitLeft;
+                axleInfo.leftWheel.GetGroundHit(out wheelHitLeft);
+
+                WheelHit wheelHitRight;
+                axleInfo.leftWheel.GetGroundHit(out wheelHitRight);
+
+                if (wheelHitLeft.collider != null && wheelHitRight.collider != null)
+                {
+                    if (wheelHitLeft.collider == wheelHitRight.collider)
+                    {
+                        if(wheelHitLeft.collider.gameObject != null)
+                        {
+                            GameObject other = wheelHitLeft.collider.gameObject;
+                            if (other.GetComponent<BoosterRamp>() != null)
+                            {
+                                other.GetComponent<BoosterRamp>().Boost(this);
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 

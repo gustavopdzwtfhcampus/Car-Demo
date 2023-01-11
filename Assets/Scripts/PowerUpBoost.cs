@@ -5,7 +5,6 @@ using UnityEngine;
 public class PowerUpBoost : MonoBehaviour, PowerUpInterface
 {
     public float boostByMassMultiplier;
-    public bool unloadObjectOnCollision;
     public void Activate(Car car)
     {
         //Calls the game manager to play the sound this gameobject should emit
@@ -22,9 +21,6 @@ public class PowerUpBoost : MonoBehaviour, PowerUpInterface
         //Removes the specified gameobject from the game, visually, meaning it still exists but
         //its colliders and meshrenderers are deactivated
         //More details in game manager method
-        if(unloadObjectOnCollision == true)
-        {
-            GameManager.instance.UnloadObject(this.gameObject);
-        }
+        GameManager.instance.UnloadObject(this.gameObject);
     }
 }
