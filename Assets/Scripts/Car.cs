@@ -12,6 +12,8 @@ public class AxleInfo
 }
 public class Car : MonoBehaviour
 {
+    bool carCanGo = true;
+    public bool CarCanGo { get { return carCanGo; } set { carCanGo = value; } }
     public static Car instance { get; private set; } //Global static instance of car
     Rigidbody rigidbody; //The cars rigidbody
     public Rigidbody Rigidbody { get { return rigidbody; } } //Getter for the cars rigidbody
@@ -78,11 +80,14 @@ public class Car : MonoBehaviour
     {
         checkIfGrounded();
 
-        checkBraking();
+        if(carCanGo == true)
+        {
+            checkBraking();
 
-        checkWheels();
+            checkWheels();
 
-        checkMidAirRotation();
+            checkMidAirRotation();
+        }
 
         checkBoosting();
     }

@@ -9,7 +9,10 @@ public class BoosterRamp : MonoBehaviour
     public void Boost(Car car)
     {
         //Calls the game manager to play the sound this gameobject should emit
-        GameManager.instance.PlaySound(this.gameObject);
+        if(GameManager.instance != null)
+        {
+            GameManager.instance.PlaySound(this.gameObject);
+        }
 
         //Inbetween the emission of the sound and the unloading of the object
         //The actual functionality of the power up should occur
