@@ -16,6 +16,9 @@ GameObject:
   - component: {fileID: 1385184297186496837}
   - component: {fileID: 1385184297186496856}
   - component: {fileID: 1385184297186496844}
+  - component: {fileID: -7834842960290546355}
+  - component: {fileID: 1252017048499787964}
+  - component: {fileID: 4892678366036835522}
   m_Layer: 0
   m_Name: Power Up Boost
   m_TagString: Untagged
@@ -3127,7 +3130,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6f92a0276f34ee24f99cb919a7b804a4, type: 2}
+  - {fileID: 2100000, guid: f8f302268a58e3c45ac5d1ecd468431e, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3184,7 +3187,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boostByMassMultiplier: 10
-  unloadObjectOnCollision: 1
 --- !u!82 &1385184297186496844
 AudioSource:
   m_ObjectHideFlags: 0
@@ -3195,10 +3197,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bbdf5b95a9f48f64b8a55a7c91594802, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ec1b27afe6def6946b051115199ef191, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 1.1
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -3281,3 +3283,39 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!168 &-7834842960290546355
+AudioEchoFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385184297186496836}
+  m_Enabled: 1
+  m_Delay: 10
+  m_DecayRatio: 0.5
+  m_WetMix: 1
+  m_DryMix: 1
+--- !u!166 &1252017048499787964
+AudioChorusFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385184297186496836}
+  m_Enabled: 1
+  m_DryMix: 1
+  m_WetMix1: 0.5
+  m_WetMix2: 0.5
+  m_WetMix3: 0.5
+  m_Delay: 40
+  m_Rate: 0.8
+  m_Depth: 0.03
+--- !u!170 &4892678366036835522
+AudioDistortionFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1385184297186496836}
+  m_Enabled: 1
+  m_DistortionLevel: 0.25

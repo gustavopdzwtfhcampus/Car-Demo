@@ -29,9 +29,9 @@ public class Car : MonoBehaviour
     //For checking if all wheels are grounded
     bool allWheelsGrounded;
     public bool AllWheelsGrounded { get { return allWheelsGrounded;  } }
-
     //How fast the car can rotate when mid air
     public float midAirRotationSpeed;
+    Vector3 startingGravity; //For resetting the cars gravity
 
     private void Awake()
     {
@@ -267,5 +267,6 @@ public class Car : MonoBehaviour
             axleInfo.leftWheel.brakeTorque = maxMotorTorque * 100;
             axleInfo.rightWheel.brakeTorque = maxMotorTorque * 100;
         }
+        Physics.gravity = startingGravity;
     }
 }
