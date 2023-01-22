@@ -19,34 +19,36 @@ public class ParticleSystemToggle : MonoBehaviour
 
     private void Start()
     {
-        isPlaying = false;
-        collisions = 0;
-        particleSystem.Stop();
+        isPlaying = false; 
+        collisions = 0; //zero collisions
+        particleSystem.Stop(); //no effects are playing
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        collisions++;
-        collisionCountText.text = "Collision count: " + collisions;
+        collisions++; // if we collide add collisions
+        collisionCountText.text = "Collision count: " + collisions; //update counter
 
-         if (collisions >= collisionThreshold + 5)
+         if (collisions >= collisionThreshold + 5) //if collisions over the threshold+5 reset the car and let explode
         {
             //Car.instance.CarCanGo = false;
-            Car.instance.Rigidbody.AddExplosionForce(Car.instance.Rigidbody.mass * explosionForce, transform.position, explosionRadius, 0f, ForceMode.Impulse);
+            Car.instance.Rigidbody.AddExplosionForce(Car.instance.Rigidbody.mass * explosionForce, transform.position, explosionRadius, 0f, ForceMode.Impulse); //explode
             if(startedCoroutine == false) //so that the countdown does not get started over and over again
             {
-                startedCoroutine = true;
-                StartCoroutine(Countdown(explosionDuration));
+                startedCoroutine = true; //coroutine is running now
+                StartCoroutine(Countdown(explosionDuration)); //start the explosion
             }
             
         }
-        else if (collisions >= collisionThreshold)
+        else if (collisions >= collisionThreshold) //if collisions over the threshold play particles
         {
             particleSystem.Play();
             isPlaying = true;
         }
     }
 
+
+    /* On/Off of the particle system */
     public void ToggleParticleSystem()
     {
         if (isPlaying)
@@ -82,9 +84,12 @@ public class ParticleSystemToggle : MonoBehaviour
         Car.instance.ResetCar(); //call Car.instance instead
         startedCoroutine = false;
     }
+
+    //By using an IEnumerator, the script can run multiple tasks in parallel
+    //such as waiting for a certain amount of time to pass, without blocking the main thread
     public IEnumerator ParticleEnableWait()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2f); //wait
         particleSystem.gameObject.SetActive(true);
     }
 }

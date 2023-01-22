@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CollisionGravity : MonoBehaviour
 {
-    private Rigidbody rb;
+    private Rigidbody rb; //physics object
 
     private void Start()
     {
@@ -11,6 +11,6 @@ public class CollisionGravity : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        rb.useGravity = true;
+        rb.useGravity = true; //if colliding turn on the gravity
     }
 }
