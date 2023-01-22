@@ -16,6 +16,7 @@ public class ParticleSystemToggle : MonoBehaviour
     public float explosionForce;
     public float explosionRadius;
     bool startedCoroutine = false;
+    public AudioSource explosionSound;
 
     private void Start()
     {
@@ -32,7 +33,8 @@ public class ParticleSystemToggle : MonoBehaviour
          if (collisions >= collisionThreshold + 5) //if collisions over the threshold+5 reset the car and let explode
         {
             //Car.instance.CarCanGo = false;
-            Car.instance.Rigidbody.AddExplosionForce(Car.instance.Rigidbody.mass * explosionForce, transform.position, explosionRadius, 0f, ForceMode.Impulse); //explode
+            explosionSound.Play();
+            Car.instance.Rigidbody.AddExplosionForce(Car.instance.Rigidbody.mass * explosionForce, transform.position, explosionRadius, 10f, ForceMode.Impulse); //explode
             if(startedCoroutine == false) //so that the countdown does not get started over and over again
             {
                 startedCoroutine = true; //coroutine is running now
@@ -78,10 +80,10 @@ public class ParticleSystemToggle : MonoBehaviour
         particleSystem.Stop();
         particleSystem.gameObject.SetActive(false);
         StartCoroutine(ParticleEnableWait());//So that while the last particles draw out, they do not get shown when the car resets after an explosion
-        collisions = 0;
         collisionCountText.text = "Collision Count: " + collisions;
         //Car.instance.CarCanGo = true;
         Car.instance.ResetCar(); //call Car.instance instead
+        collisions = 0;
         startedCoroutine = false;
     }
 
