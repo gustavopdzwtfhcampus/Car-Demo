@@ -55,6 +55,8 @@ public class Car : MonoBehaviour
         transformAtStart.position = transform.position;
         transformAtStart.rotation = transform.rotation;
         transformAtStart.localScale = transform.localScale;
+        startingGravity = Physics.gravity;
+        ResetCar();
     }
 
     // Update is called once per frame
@@ -268,5 +270,6 @@ public class Car : MonoBehaviour
             axleInfo.rightWheel.brakeTorque = maxMotorTorque * 100;
         }
         Physics.gravity = startingGravity;
+        carCanGo = true;
     }
 }

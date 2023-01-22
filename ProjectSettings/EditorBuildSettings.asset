@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Dev_Gustavo.unity
-    guid: 4cec6dc230d20f047819bd181e52d1ba
+    path: Assets/Scenes/StartScreen.unity
+    guid: 906b23969a348e84eb3f574bb71c3be8
   - enabled: 1
     path: Assets/Scenes/Demo.unity
     guid: bb12fc9675b28d04eb6b5dbe2d54da5b

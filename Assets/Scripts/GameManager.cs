@@ -4,7 +4,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-
 public class GameManager : MonoBehaviour
 {
     public TextMeshProUGUI debugInfo; //The text box where the debug information gets displayed
@@ -43,10 +42,11 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         //Toggles debug information
+        /*
         if (Input.GetKeyDown(KeyCode.T))
         {
             debugInfoEnabled = !debugInfoEnabled;
-        }
+        }*/
 
         //The content of the debug information
         if (debugInfoEnabled == true)

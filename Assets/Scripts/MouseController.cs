@@ -93,7 +93,15 @@ public class MouseController : MonoBehaviour
             //Reads the input of the vertical mouse input, multiplies it with the rotation speed and adds it to the rotation variable of the x axis
             rotationXAxis += -Input.GetAxis("Mouse Y") * rotationSpeed;
             //Limits the rotation of the x axis to the specified view angle
-            rotationXAxis = Mathf.Clamp(rotationXAxis, -viewAngleLimitVerticalLower, viewAngleLimitVerticalUpper);
+            if (invertXAxis)
+            {
+                rotationXAxis = Mathf.Clamp(rotationXAxis, -viewAngleLimitVerticalLower, viewAngleLimitVerticalUpper);
+            }
+            else
+            {
+                rotationXAxis = Mathf.Clamp(rotationXAxis, -viewAngleLimitVerticalUpper, viewAngleLimitVerticalLower);
+            }
+            
 
             //Reads the input of the horizontal mouse input, multiplies it with the rotation speed and adds it to the rotation variable of the y axis
             rotationYAxis += Input.GetAxis("Mouse X") * rotationSpeed;

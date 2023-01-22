@@ -22,11 +22,12 @@ public class CarAudio : MonoBehaviour
 
     void Update()
     {
-
+        /*
         if (Input.GetKeyDown(KeyCode.M))
         {
             musicSource.mute = !musicSource.mute;
         }
+        */
         float speed = rb.velocity.magnitude;
         engineSource.pitch = minEnginePitch + (speed / pitchMultiplier) % maxEnginePitch;
         if (Input.GetKey(KeyCode.Space))
