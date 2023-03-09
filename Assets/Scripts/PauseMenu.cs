@@ -14,6 +14,7 @@ public class PauseMenu : MonoBehaviour
     public string sceneName;
     public Button restartButton;
     public Slider volumeSlider;
+    public TMPro.TMP_Dropdown driveModeDropdown;
     public Toggle toggleBox1;
     public Toggle toggleBox2;
     public Toggle toggleBox3;
@@ -59,6 +60,11 @@ public class PauseMenu : MonoBehaviour
                 audioObject.audioSource.volume = audioObject.startingVolume*(1-(1-volumeSlider.value));
             }
         });
+
+        driveModeDropdown.onValueChanged.AddListener((value) => {
+            Car.instance.ChangeDriveMode(value); ;
+        });
+        Car.instance.ChangeDriveMode(driveModeDropdown.value);
 
         toggleBox1.onValueChanged.AddListener((value) => {
             if (buttonSound.gameObject.active == true)

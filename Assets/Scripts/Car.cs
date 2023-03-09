@@ -272,4 +272,43 @@ public class Car : MonoBehaviour
         Physics.gravity = startingGravity;
         carCanGo = true;
     }
+
+    public void ChangeDriveMode(int i)
+    {
+        switch (i)
+        {
+            case 0:
+                foreach (AxleInfo axleInfo in axleInfos)
+                {
+                    axleInfo.motor = true;
+                }
+                break;
+            case 1:
+                foreach (AxleInfo axleInfo in axleInfos)
+                {
+                    if (axleInfo.steering)
+                    {
+                        axleInfo.motor = true;
+                    }
+                    else
+                    {
+                        axleInfo.motor = false;
+                    }
+                }
+                break;
+            case 2:
+                foreach (AxleInfo axleInfo in axleInfos)
+                {
+                    if (axleInfo.steering)
+                    {
+                        axleInfo.motor = false;
+                    }
+                    else
+                    {
+                        axleInfo.motor = true;
+                    }
+                }
+                break;
+        }
+    }
 }

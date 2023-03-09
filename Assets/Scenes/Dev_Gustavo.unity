@@ -24848,6 +24848,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car
       objectReference: {fileID: 0}
+    - target: {fileID: 1928648504160400010, guid: 5580b0514c794904b94262ab8003ad7f, type: 3}
+      propertyPath: axleInfos.Array.data[0].motor
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928648504160400010, guid: 5580b0514c794904b94262ab8003ad7f, type: 3}
+      propertyPath: axleInfos.Array.data[1].motor
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5580b0514c794904b94262ab8003ad7f, type: 3}
 --- !u!1001 &1784000071214902852
