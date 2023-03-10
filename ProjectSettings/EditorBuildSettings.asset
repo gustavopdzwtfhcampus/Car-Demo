@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Demo.unity
     guid: bb12fc9675b28d04eb6b5dbe2d54da5b
+  - enabled: 1
+    path: Assets/Scenes/Dev_Gustavo.unity
+    guid: 4cec6dc230d20f047819bd181e52d1ba
   m_configObjects: {}

@@ -15,6 +15,11 @@ public class PauseMenu : MonoBehaviour
     public Button restartButton;
     public Slider volumeSlider;
     public TMPro.TMP_Dropdown driveModeDropdown;
+    public TMPro.TMP_InputField maxMotorTorqueInput;
+    public TMPro.TMP_InputField maxSteeringAngleInput;
+    public TMPro.TMP_InputField midAirRotationSpeedInput;
+    public TMPro.TMP_InputField sidewayFrictionInput;
+    public TMPro.TMP_InputField stiffnessInput;
     public Toggle toggleBox1;
     public Toggle toggleBox2;
     public Toggle toggleBox3;
@@ -60,12 +65,121 @@ public class PauseMenu : MonoBehaviour
                 audioObject.audioSource.volume = audioObject.startingVolume*(1-(1-volumeSlider.value));
             }
         });
-
+        //-------------------------------------------------------------------
         driveModeDropdown.onValueChanged.AddListener((value) => {
-            Car.instance.ChangeDriveMode(value); ;
+            Car.instance.ChangeDriveMode(value);
         });
         Car.instance.ChangeDriveMode(driveModeDropdown.value);
+        //-------------------------------------------------------------------
+        maxMotorTorqueInput.onValueChanged.AddListener((value) => {
+            try
+            {
+                Car.instance.maxMotorTorque = float.Parse(value);
+            }
+            catch{}
+        });
+        try
+        {
+            Car.instance.maxMotorTorque = float.Parse(maxMotorTorqueInput.text);
+        }
+        catch{}
+        //-------------------------------------------------------------------
+        maxSteeringAngleInput.onValueChanged.AddListener((value) => {
+            try
+            {
+                Car.instance.maxSteeringAngle = float.Parse(value);
+            }
+            catch { }
+        });
+        try
+        {
+            Car.instance.maxSteeringAngle = float.Parse(maxSteeringAngleInput.text);
+        }
+        catch { }
+        //-------------------------------------------------------------------
+        midAirRotationSpeedInput.onValueChanged.AddListener((value) => {
+            try
+            {
+                Car.instance.midAirRotationSpeed = float.Parse(value);
+            }
+            catch { }
+        });
+        try
+        {
+            Car.instance.midAirRotationSpeed = float.Parse(midAirRotationSpeedInput.text);
+        }
+        catch { }
+        //-------------------------------------------------------------------
+        sidewayFrictionInput.onValueChanged.AddListener((value) => {
+            try
+            {
+                foreach (AxleInfo axleInfo in Car.instance.axleInfos)
+                {
+                    WheelFrictionCurve tempWFC;
+                    tempWFC = axleInfo.leftWheel.sidewaysFriction;
+                    tempWFC.extremumSlip = float.Parse(value);
+                    axleInfo.leftWheel.sidewaysFriction = tempWFC;
 
+                    WheelFrictionCurve tempWFC_;
+                    tempWFC_ = axleInfo.rightWheel.sidewaysFriction;
+                    tempWFC_.extremumSlip = float.Parse(value);
+                    axleInfo.rightWheel.sidewaysFriction = tempWFC_;
+                }
+            }
+            catch { }
+        });
+        try
+        {
+            foreach (AxleInfo axleInfo in Car.instance.axleInfos)
+            {
+                WheelFrictionCurve tempWFC;
+                tempWFC = axleInfo.leftWheel.sidewaysFriction;
+                tempWFC.extremumSlip = float.Parse(sidewayFrictionInput.text);
+                axleInfo.leftWheel.sidewaysFriction = tempWFC;
+
+                WheelFrictionCurve tempWFC_;
+                tempWFC_ = axleInfo.rightWheel.sidewaysFriction;
+                tempWFC_.extremumSlip = float.Parse(sidewayFrictionInput.text);
+                axleInfo.rightWheel.sidewaysFriction = tempWFC_;
+            }
+        }
+        catch { }
+        //-------------------------------------------------------------------
+        stiffnessInput.onValueChanged.AddListener((value) => {
+            try
+            {
+                foreach (AxleInfo axleInfo in Car.instance.axleInfos)
+                {
+                    WheelFrictionCurve tempWFC;
+                    tempWFC = axleInfo.leftWheel.sidewaysFriction;
+                    tempWFC.stiffness = float.Parse(value);
+                    axleInfo.leftWheel.sidewaysFriction = tempWFC;
+
+                    WheelFrictionCurve tempWFC_;
+                    tempWFC_ = axleInfo.rightWheel.sidewaysFriction;
+                    tempWFC_.stiffness = float.Parse(value);
+                    axleInfo.rightWheel.sidewaysFriction = tempWFC_;
+                }
+            }
+            catch { }
+        });
+        try
+        {
+            foreach (AxleInfo axleInfo in Car.instance.axleInfos)
+            {
+                WheelFrictionCurve tempWFC;
+                tempWFC = axleInfo.leftWheel.sidewaysFriction;
+                tempWFC.stiffness = float.Parse(stiffnessInput.text);
+                axleInfo.leftWheel.sidewaysFriction = tempWFC;
+
+                WheelFrictionCurve tempWFC_;
+                tempWFC_ = axleInfo.rightWheel.sidewaysFriction;
+                tempWFC_.stiffness = float.Parse(stiffnessInput.text);
+                axleInfo.rightWheel.sidewaysFriction = tempWFC_;
+            }
+        }
+        catch { }
+        //-------------------------------------------------------------------
         toggleBox1.onValueChanged.AddListener((value) => {
             if (buttonSound.gameObject.active == true)
             {
@@ -161,7 +275,14 @@ public class PauseMenu : MonoBehaviour
             if(pauseUI.active == true)
             {
                 Cursor.lockState = CursorLockMode.None;
-                returnButton.Select();
+                if(returnButton.IsActive() == true)
+                {
+                    returnButton.Select();
+                }
+                else
+                {
+                    backButton.Select();
+                }
             }
             else
             {

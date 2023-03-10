@@ -12,6 +12,7 @@ public class StartMenu : MonoBehaviour
     public GameObject credits;
     public GameObject loading;
     public string sceneName;
+    public Button hiddenSceneButton;
     public Button startButton;
     public Slider volumeSlider;
     public Toggle toggleBox1;
@@ -82,7 +83,18 @@ public class StartMenu : MonoBehaviour
                 buttonSound.Play();
             }
             Car.instance.Rigidbody.AddForce(Car.instance.transform.forward * Car.instance.Rigidbody.mass * 50, ForceMode.Impulse);
-            StartCoroutine(Countdown(3.5f));
+            StartCoroutine(Countdown(3.5f, sceneName));
+            ToggleObject(start);
+            ToggleObject(loading);
+        });
+
+        hiddenSceneButton.onClick.AddListener(() => {
+            if (buttonSound.gameObject.active == true)
+            {
+                buttonSound.Play();
+            }
+            Car.instance.Rigidbody.AddForce(Car.instance.transform.forward * Car.instance.Rigidbody.mass * 50, ForceMode.Impulse);
+            StartCoroutine(Countdown(3.5f, "Dev_Gustavo"));
             ToggleObject(start);
             ToggleObject(loading);
         });
@@ -147,9 +159,9 @@ public class StartMenu : MonoBehaviour
         gameObject.SetActive(!gameObject.active);
     }
 
-    IEnumerator Countdown(float duration)
+    IEnumerator Countdown(float duration, string name)
     {
         yield return new WaitForSeconds(duration);
-        SceneManager.LoadSceneAsync(sceneName);
+        SceneManager.LoadSceneAsync(name);
     }
 }
